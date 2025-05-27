@@ -19,7 +19,8 @@ public class Comprador {
      * @throws PagoInsuficienteException si la moneda es de un valor menor al precio del producto
      */
     public Comprador(Moneda m, int prod, Expendedor exp) throws PagoIncorrectoException, NoHayProductoException, PagoInsuficienteException {
-        Producto p = exp.comprarProducto(m, prod);
+        exp.comprarProducto(m, prod);
+        Producto p=exp.getProducto();
         consumido = p.consumir();
 
         Moneda temp;

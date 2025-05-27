@@ -12,6 +12,9 @@ public class Expendedor {
     private DepositoGenerico<Producto> snickers;
     private DepositoGenerico<Producto> super8;
     private DepositoGenerico<Moneda> MonVu;
+    private DepositoGenerico<Moneda> depositoMonedas;
+    private Producto productoEntregado;
+
 
     /**
      * El Constructor inicia con una cantidad determinada de cada producto, la misma para todos.
@@ -74,7 +77,7 @@ public class Expendedor {
      * @throws PagoIncorrectoException Si se pagó con una moneda nula
      * @throws PagoInsuficienteException Si la moneda es de un valor menor al precio del producto
      */
-    public Producto comprarProducto(Moneda m, int cual) throws NoHayProductoException, PagoIncorrectoException, PagoInsuficienteException {
+    public void comprarProducto(Moneda m, int cual) throws NoHayProductoException, PagoIncorrectoException, PagoInsuficienteException {
 
             Productos [] productosArr= Productos.values();
             if(cual>= productosArr.length||cual<0){
@@ -94,22 +97,27 @@ public class Expendedor {
                 MonVu.add(m);
                 throw new PagoInsuficienteException("Pago insuficiente");
             }
+
+            depositoMonedas.add(m);
+
             int vuelto= m.getValor() -seleccion.getPrecioProducto();
             while (vuelto > 0) {
                 Moneda aux = new Moneda100();
                 MonVu.add(aux);
                 vuelto -= 100;
             }
-            return switch (seleccion) {
-                case FANTA -> fanta.get();
-                case SPRITE -> sprite.get();
-                case COCACOLA -> coca.get();
-                case SNICKERS -> snickers.get();
-                case SUPER8 -> super8.get();
-            };
+            switch (seleccion) {
+                case FANTA -> productoEntregado=fanta.get();
+                case SPRITE -> productoEntregado=sprite.get();
+                case COCACOLA -> productoEntregado=coca.get();
+                case SNICKERS -> productoEntregado=snickers.get();
+                case SUPER8 -> productoEntregado=super8.get();
+            }
 
 
 
-
+    }
+    public Producto getProducto(){
+        return productoEntregado;
     }
 }
