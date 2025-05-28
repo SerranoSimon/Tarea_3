@@ -43,4 +43,13 @@ public class Comprador {
     public int cuantoVuelto() {
         return vuelto;
     }
+
+    public Moneda Monedero(int mon){
+        return switch (mon) {
+            case 100 -> new Moneda100();
+            case 500 -> new Moneda500();
+            case 1000 -> new Moneda1000();
+            default -> null;
+        };
+    }
 }
