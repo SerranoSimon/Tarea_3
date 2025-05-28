@@ -1,5 +1,7 @@
 package Logica;
 
+import java.util.ArrayList;
+
 /**
  * La clase Expendedor actúa como una máquina expendedora que vende bebidas y dulces,
  * manejando la lógica de la compra validando los pagos y entregando el vuelto en monedas de 100
@@ -27,6 +29,7 @@ public class Expendedor {
         this.snickers=new DepositoGenerico<>();
         this.super8=new DepositoGenerico<>();
         this.MonVu=new DepositoGenerico<>();
+        this.depositoMonedas=new DepositoGenerico<>();
         for(int i=0; i<numProductos;i++){
             Bebida b1=new Cocacola(100+i);
             Bebida b2=new Sprite(200+i);
@@ -40,6 +43,7 @@ public class Expendedor {
             super8.add(e2);
 
         }
+
     }
 
     /**
@@ -64,6 +68,7 @@ public class Expendedor {
     public Moneda getVuelto(){
         return MonVu.get();
     }
+    public DepositoGenerico<Moneda> getMonVu(){return MonVu;}
 
     /**
      * Metodo encargado de realizar la compra,La valida recibiendo una moneda y la numeracion
@@ -71,20 +76,14 @@ public class Expendedor {
      * Moneda inválida, elección invalida)
      *
      * @param m Moneda con la que se comprará
-     * @param cual Numero que representa la elección del producto
+     * @param seleccion Numero que representa la elección del producto
      * @return El producto deseado
      * @throws NoHayProductoException Si no queda del producto o hubo una elección invalida
      * @throws PagoIncorrectoException Si se pagó con una moneda nula
      * @throws PagoInsuficienteException Si la moneda es de un valor menor al precio del producto
      */
-    public void comprarProducto(Moneda m, int cual) throws NoHayProductoException, PagoIncorrectoException, PagoInsuficienteException {
+    public void comprarProducto(Moneda m, Productos seleccion) throws NoHayProductoException, PagoIncorrectoException, PagoInsuficienteException {
 
-            Productos [] productosArr= Productos.values();
-            if(cual>= productosArr.length||cual<0){
-               MonVu.add(m);
-               throw new NoHayProductoException("Número de depósito erróneo");
-            }
-            Productos seleccion=productosArr[cual];
             if(m==null){
                 throw new PagoIncorrectoException("Moneda nula");
             }
@@ -98,13 +97,24 @@ public class Expendedor {
                 throw new PagoInsuficienteException("Pago insuficiente");
             }
 
-            depositoMonedas.add(m);
 
             int vuelto= m.getValor() -seleccion.getPrecioProducto();
+            depositoMonedas.add(m);
+
             while (vuelto > 0) {
-                Moneda aux = new Moneda100();
-                MonVu.add(aux);
-                vuelto -= 100;
+                while(vuelto>=1000){
+                    MonVu.add(new Moneda1000());
+                    vuelto-=1000;
+                }
+                while(vuelto>=500){
+                    MonVu.add(new Moneda500());
+                    vuelto-=500;
+                }
+                while(vuelto>=100){
+                    MonVu.add(new Moneda100());
+                    vuelto-=100;
+                }
+
             }
             switch (seleccion) {
                 case FANTA -> productoEntregado=fanta.get();

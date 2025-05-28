@@ -18,11 +18,10 @@ public class Comprador {
      * @throws NoHayProductoException si no hay stock o se ingresa un número inválido
      * @throws PagoInsuficienteException si la moneda es de un valor menor al precio del producto
      */
-    public Comprador(Moneda m, int prod, Expendedor exp) throws PagoIncorrectoException, NoHayProductoException, PagoInsuficienteException {
-        exp.comprarProducto(m, prod);
+    public Comprador(Moneda m, Productos seleccion, Expendedor exp) throws PagoIncorrectoException, NoHayProductoException, PagoInsuficienteException {
+        exp.comprarProducto(m, seleccion);
         Producto p=exp.getProducto();
         consumido = p.consumir();
-
         Moneda temp;
         while ((temp = exp.getVuelto()) != null) {
             vuelto += temp.getValor();
