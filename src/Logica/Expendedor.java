@@ -58,6 +58,7 @@ public class Expendedor {
             case FANTA -> fanta;
             case SUPER8 -> super8;
             case SNICKERS -> snickers;
+            case OTRO -> null;
         };
     }
 
@@ -83,17 +84,23 @@ public class Expendedor {
      * @throws PagoInsuficienteException Si la moneda es de un valor menor al precio del producto
      */
     public void comprarProducto(Moneda m, Productos seleccion) throws NoHayProductoException, PagoIncorrectoException, PagoInsuficienteException {
-
+            if(seleccion==Productos.OTRO){
+                MonVu.add(m);
+                System.out.println("Tu moneda es: "+MonVu.get());
+                throw new NoHayProductoException("Elección de depósito incorrecta");
+            }
             if(m==null){
                 throw new PagoIncorrectoException("Moneda nula");
             }
 
             if(getDeposito(seleccion).getArr().size()==0){
                 MonVu.add(m);
+                System.out.println("Tu moneda es: "+MonVu.get());
                 throw new NoHayProductoException("Producto agotado");
             }
             if(seleccion.getPrecioProducto()> m.getValor()){
                 MonVu.add(m);
+                System.out.println("Tu moneda es: "+MonVu.get());
                 throw new PagoInsuficienteException("Pago insuficiente");
             }
 

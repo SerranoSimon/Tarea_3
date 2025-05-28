@@ -8,7 +8,9 @@ public enum Productos {
     SPRITE(800),
     FANTA(700),
     SUPER8(300),
-    SNICKERS(600);
+    SNICKERS(600),
+    OTRO(0);
+
     private final int precioProducto;
 
     /**
