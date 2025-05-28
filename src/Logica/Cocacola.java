@@ -1,9 +1,12 @@
 package Logica;
 
+import javax.swing.*;
+
 /**
  * Clase que representa una CocaCola y hereda de Bebida
  */
 public class Cocacola extends Bebida {
+    private ImageIcon imagen;
     /**
      * Se llama al constructor de Bebida
      * @param serie le da serie como parametro al constructor de Bebida

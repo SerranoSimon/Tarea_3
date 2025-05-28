@@ -8,9 +8,12 @@ public class PanelPrincipal extends JPanel{
     public PanelPrincipal(){
         super();
         panelExpendedor=new PanelExpendedor();
-        this.setLayout(new BorderLayout());
-
-        this.setSize(400,300);
+        this.setLayout(new GridBagLayout());
+        this.setBackground(Color.WHITE);
+        panelExpendedor.setPreferredSize(new Dimension(400,600));
+        this.add(panelExpendedor);
         this.setVisible(true);
+
     }
+
 }
