@@ -1,15 +1,19 @@
 package Logica;
 
+import javax.swing.*;
+
 /**
  * Clase que representa un Snickers y hereda de Dulce
  */
 public class Snickers extends Dulce{
+    private ImageIcon imagen;
     /**
      * Se llama al constructor de Bebida
      * @param serie le da serie como parametro al constructor de Bebida
      */
     public Snickers(int serie){
         super(serie);
+        this.imagen=new ImageIcon("resources/imagenes/snickers.png");
 
     }
     /**
@@ -19,5 +23,8 @@ public class Snickers extends Dulce{
     @Override
     public String consumir() {
         return "Snickers";
+    }
+    public ImageIcon getIcon(){
+        return imagen;
     }
 }
