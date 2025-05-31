@@ -26,7 +26,8 @@ public class PanelCompraExp extends JPanel {
         //Botones seleccion
         this.panelBotonesSeleccion=new PanelBotonesSeleccion();
         panelBotonesSeleccion.setAlignmentX(Component.CENTER_ALIGNMENT);
-        panelBotonesSeleccion.setMaximumSize(new Dimension(100, 80));
+        panelBotonesSeleccion.setPreferredSize(new Dimension(120, 100));
+        panelBotonesSeleccion.setMaximumSize(new Dimension(120, 100));
         //Vuelto Texto
         JLabel vueltoTexto = new JLabel("Vuelto");
         vueltoTexto.setHorizontalAlignment(JLabel.CENTER);

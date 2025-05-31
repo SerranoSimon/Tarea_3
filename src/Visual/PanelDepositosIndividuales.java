@@ -1,17 +1,20 @@
 package Visual;
 
-import Logica.DepositoGenerico;
-import Logica.Producto;
+import Logica.*;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class PanelDepositosIndividuales extends JPanel {
     private String num;
+    private DepositoGenerico<Producto> deposito;
+    private ImageIcon icono;
 
-    public PanelDepositosIndividuales(String num){
+    public PanelDepositosIndividuales(DepositoGenerico<Producto> dep, String num){
         this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
         this.num=num;
+        this.deposito= dep;
+
         this.setBackground(Color.BLACK);
         JLabel labelNum=new JLabel();
         labelNum.setText(num);
@@ -30,6 +33,8 @@ public class PanelDepositosIndividuales extends JPanel {
         this.add(labelNum);
         this.add(Box.createRigidArea(new Dimension(5,0))); //crea espacio entre los elementos horizontales
         this.add(rectangulo);
+
+
 
 
 
