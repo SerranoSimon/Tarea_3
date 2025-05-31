@@ -6,17 +6,18 @@ import javax.swing.border.Border;
 import java.awt.*;
 
 public class PanelExpendedor extends JPanel {
+    private Expendedor exp;
     private JPanel panelDepositos;
     private JPanel panelCompraExp;
 
     public PanelExpendedor() {
+        this.exp=new Expendedor(5);
         this.setLayout(new BorderLayout());
         Border border = BorderFactory.createLineBorder(Color.BLACK);
 
-        this.setBounds(1920 / 2 - 600, 50, 600, 660);
         this.setBorder(border);
 
-        this.panelDepositos = new PanelDepositos();
+        this.panelDepositos = new PanelDepositos(exp);
         this.panelCompraExp = new PanelCompraExp();
 
         this.panelCompraExp.setBackground(Color.PINK);
