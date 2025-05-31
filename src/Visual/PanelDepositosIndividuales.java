@@ -36,7 +36,7 @@ public class PanelDepositosIndividuales extends JPanel {
         this.add(Box.createRigidArea(new Dimension(5, 0)));
         this.add(rectangulo);
 
-
+        //Relleno de depositos de acuerdo a lo que se pone en expendedor al crearlo
         int cantidad=deposito.getArr().size();
         if (cantidad>= 5) {
             for (int i = 0; i < 5; i++) {

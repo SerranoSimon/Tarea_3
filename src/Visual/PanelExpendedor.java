@@ -11,15 +11,15 @@ public class PanelExpendedor extends JPanel {
     private JPanel panelCompraExp;
 
     public PanelExpendedor() {
-        this.exp=new Expendedor(4);
+        this.exp=new Expendedor(0);
+
         this.setLayout(new BorderLayout());
         Border border = BorderFactory.createLineBorder(Color.BLACK);
 
         this.setBorder(border);
 
         this.panelDepositos = new PanelDepositos(exp);
-        this.panelCompraExp = new PanelCompraExp();
-
+        this.panelCompraExp = new PanelCompraExp(exp);
         this.panelCompraExp.setBackground(Color.PINK);
 
         JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);

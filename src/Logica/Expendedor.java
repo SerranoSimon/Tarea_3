@@ -15,6 +15,7 @@ public class Expendedor {
     private DepositoGenerico<Producto> super8;
     private DepositoGenerico<Moneda> MonVu;
     private DepositoGenerico<Moneda> depositoMonedas;
+    private int capacidadMaximaDeposito;
     private Producto productoEntregado;
 
 
@@ -23,6 +24,7 @@ public class Expendedor {
      * @param numProductos cantidad con la que se carga cada depósito de productos
      */
     public Expendedor(int numProductos){
+        this.capacidadMaximaDeposito=numProductos;
         this.coca=new DepositoGenerico<>();
         this.sprite=new DepositoGenerico<>();
         this.fanta=new DepositoGenerico<>();
@@ -129,5 +131,36 @@ public class Expendedor {
     }
     public Producto getProducto(){
         return productoEntregado;
+    }
+    public void rellenarDepositos(){
+        int k=0; //k es para que no se repitan los numeros de serie al ir llenando
+        if(coca.getArr().size()==0){
+            for(int i=0;i<5;i++){
+                coca.add(new Cocacola(105+i+k));
+            }
+        }
+        if(sprite.getArr().size()==0){
+            for(int i=0;i<capacidadMaximaDeposito;i++){
+                sprite.add(new Sprite(205+i+k));
+            }
+        }
+        if(fanta.getArr().size()==0){
+            for(int i=0;i<capacidadMaximaDeposito;i++){
+                fanta.add(new Sprite(305+i+k));
+            }
+        }
+        if(snickers.getArr().size()==0){
+            for(int i=0;i<capacidadMaximaDeposito;i++){
+                snickers.add(new Snickers(405+i+k));
+            }
+        }
+        if(super8.getArr().size()==0){
+            for(int i=0;i<capacidadMaximaDeposito;i++){
+                super8.add(new Super8(505+i+k));
+            }
+        }
+        k+=5;
+
+
     }
 }

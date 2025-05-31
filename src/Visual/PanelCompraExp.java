@@ -1,33 +1,51 @@
 package Visual;
 
+import Logica.DepositoGenerico;
+import Logica.*;
+import Logica.Producto;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class PanelCompraExp extends JPanel {
+public class PanelCompraExp extends JPanel implements ActionListener {
     private PanelBotonesSeleccion panelBotonesSeleccion;
     private PanelVuelto panelVuelto;
-    public PanelCompraExp() {
+    private JButton rellenar;
+    private Expendedor exp;
+    public PanelCompraExp(Expendedor exp) {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        this.exp=exp;
         //Titulo
         JLabel titulo = new JLabel("EXPENDEDOR");
         titulo.setHorizontalAlignment(JLabel.CENTER);
         titulo.setAlignmentX(Component.CENTER_ALIGNMENT);
         titulo.setPreferredSize(new Dimension(130, titulo.getPreferredSize().height));
         //Boton rellena depositos
-        JButton rellenar = new JButton("Rellenar depósitos vacíos");
+        this.rellenar= new JButton("Rellenar depósitos vacíos");
         rellenar.setAlignmentX(Component.CENTER_ALIGNMENT);
         rellenar.setPreferredSize(new Dimension(130, 30));
+
 
         //Texto seleccion
         JLabel seleccionText = new JLabel("Seleccione su producto:");
         seleccionText.setHorizontalAlignment(JLabel.CENTER);
         seleccionText.setAlignmentX(Component.CENTER_ALIGNMENT);
         seleccionText.setPreferredSize(new Dimension(130, seleccionText.getPreferredSize().height));
+        //Texto sobre precios usando HTML
+        String texto="<html> 1.Cococola $800<br>2.Sprite $800<br>3.Fanta $700<br>4.Super8 $300<br>5.Snickers $600";
+        JLabel textoPrecios=new JLabel(texto);
+        textoPrecios.setHorizontalAlignment(JLabel.CENTER);
+        textoPrecios.setAlignmentX(Component.CENTER_ALIGNMENT);
+        textoPrecios.setPreferredSize(new Dimension(130, seleccionText.getPreferredSize().height));
+
         //Botones seleccion
         this.panelBotonesSeleccion=new PanelBotonesSeleccion();
         panelBotonesSeleccion.setAlignmentX(Component.CENTER_ALIGNMENT);
         panelBotonesSeleccion.setPreferredSize(new Dimension(120, 100));
         panelBotonesSeleccion.setMaximumSize(new Dimension(120, 100));
+
         //Vuelto Texto
         JLabel vueltoTexto = new JLabel("Vuelto");
         vueltoTexto.setHorizontalAlignment(JLabel.CENTER);
@@ -44,6 +62,8 @@ public class PanelCompraExp extends JPanel {
         this.add(Box.createVerticalStrut(50));
         this.add(rellenar);
         this.add(Box.createVerticalStrut(20));
+        this.add(textoPrecios);
+        this.add(Box.createVerticalStrut(20));
         this.add(seleccionText);
         this.add(Box.createVerticalStrut(10));
         this.add(panelBotonesSeleccion);
@@ -52,5 +72,13 @@ public class PanelCompraExp extends JPanel {
         this.add(Box.createVerticalStrut(10));
         this.add(panelVuelto);
 
+    }
+
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource()==rellenar){
+            exp.rellenarDepositos();
+        }
     }
 }
