@@ -51,7 +51,7 @@ public class Expendedor {
      * @param producto Tipo de producto que se busca
      * @return Deposito del producto deseado
      */
-    private DepositoGenerico<Producto> getDeposito(Productos producto){
+    public DepositoGenerico<Producto> getDeposito(Productos producto){
         return switch (producto) {
             case COCACOLA -> coca;
             case SPRITE -> sprite;

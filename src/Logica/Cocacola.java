@@ -11,8 +11,9 @@ public class Cocacola extends Bebida {
      * Se llama al constructor de Bebida
      * @param serie le da serie como parametro al constructor de Bebida
      */
-    public Cocacola(int serie){
+    public Cocacola(int serie) {
         super(serie);
+        this.imagen=new ImageIcon("resources/imagenes/cocacola.png");
 
     }
     /**
@@ -23,4 +24,10 @@ public class Cocacola extends Bebida {
     public String consumir() {
         return "Cocacola";
     }
+
+    @Override
+    public ImageIcon getIcon() {
+        return imagen;
+    }
+
 }

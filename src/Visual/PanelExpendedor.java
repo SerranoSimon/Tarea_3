@@ -11,7 +11,7 @@ public class PanelExpendedor extends JPanel {
     private JPanel panelCompraExp;
 
     public PanelExpendedor() {
-        this.exp=new Expendedor(5);
+        this.exp=new Expendedor(4);
         this.setLayout(new BorderLayout());
         Border border = BorderFactory.createLineBorder(Color.BLACK);
 

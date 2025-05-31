@@ -14,7 +14,7 @@ public class PanelDepositos extends JPanel {
        this.add(new PanelDepositosIndividuales(exp.getDeposito(Productos.SPRITE),"2"));
        this.add(new PanelDepositosIndividuales(exp.getDeposito(Productos.FANTA),"3"));
        this.add(new PanelDepositosIndividuales(exp.getDeposito(Productos.SUPER8),"4"));
-       this.add(new PanelDepositosIndividuales(exp.getDeposito(Productos.SNICKERS),"1"));
+       this.add(new PanelDepositosIndividuales(exp.getDeposito(Productos.SNICKERS),"5"));
        this.add(new PanelProductoEntregado());
 
     }

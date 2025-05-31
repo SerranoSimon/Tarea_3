@@ -24,6 +24,7 @@ public class Snickers extends Dulce{
     public String consumir() {
         return "Snickers";
     }
+    @Override
     public ImageIcon getIcon(){
         return imagen;
     }

@@ -1,5 +1,7 @@
 package Logica;
 
+import javax.swing.*;
+
 /**
  * Clase abstracta Producto, donde cada producto tendrá un número de serie asociado
  */
@@ -27,4 +29,5 @@ public abstract class Producto {
      * @return El producto consumido
      */
     public abstract String consumir();
+    public abstract ImageIcon getIcon();
 }

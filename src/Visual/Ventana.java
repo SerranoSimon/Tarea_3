@@ -6,10 +6,9 @@ import Logica.*;
 
 public class Ventana extends JFrame {
     private PanelPrincipal panelPrincipal;
-    private Snickers snickers;
     public Ventana(){
         super();
-        this.setLayout(null);
+        this.setLayout(new BorderLayout());
         /*this.snickers=new Snickers(200) ;
         //panelPrincipal=new PanelPrincipal();
         this.setTitle("Ventana");
