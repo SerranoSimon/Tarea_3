@@ -9,6 +9,7 @@ public class PanelDepositosIndividuales extends JPanel {
     private String num;
     private DepositoGenerico<Producto> deposito;
     private ImageIcon icono;
+    private JPanel panelGris;
 
     public PanelDepositosIndividuales(DepositoGenerico<Producto> dep, String num) {
         this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
@@ -22,10 +23,10 @@ public class PanelDepositosIndividuales extends JPanel {
         // Panel contenedor Rosado
         JPanel rectangulo = new JPanel();
         rectangulo.setBackground(Color.PINK);
-        rectangulo.setPreferredSize(new Dimension(390, 100)); // un poco más ancho y alto para margen
+        rectangulo.setPreferredSize(new Dimension(390, 100)); //
 
         // Contenedor gris de productos
-        JPanel panelGris = new JPanel(new GridLayout(1, 5, 5, 5)); // da espacio entre productos
+        this.panelGris = new JPanel(new GridLayout(1, 5, 5, 5)); // da espacio entre productos
         panelGris.setBackground(Color.GRAY);
         panelGris.setPreferredSize(new Dimension(350, 80));
 
@@ -40,33 +41,26 @@ public class PanelDepositosIndividuales extends JPanel {
         int cantidad=deposito.getArr().size();
         if (cantidad>= 5) {
             for (int i = 0; i < 5; i++) {
-                panelGris.add(new JLabel(deposito.get().getIcon()));
+                panelGris.add(new JLabel(deposito.getArr().get(i).getIcon()));
             }
         }
-        else if (cantidad==4) {
-            for (int i = 0; i < 4; i++) {
-                panelGris.add(new JLabel(deposito.get().getIcon()));
-            }
-
-        }
-        else if (cantidad==3) {
-            for (int i = 0; i < 3; i++) {
-                panelGris.add(new JLabel(deposito.get().getIcon()));
+        else{
+            for (int i = 0; i < cantidad; i++) {
+                panelGris.add(new JLabel(deposito.getArr().get(i).getIcon()));
             }
 
         }
-        else if (cantidad==2) {
-            for (int i = 0; i < 2; i++) {
-                panelGris.add(new JLabel(deposito.get().getIcon()));
-            }
 
+    }
+    public void actualizar(){
+        panelGris.removeAll();
+        int cantidad=deposito.getArr().size();
+        for (int i = 0; i < cantidad; i++) {
+            panelGris.add(new JLabel(deposito.getArr().get(i).getIcon()));
         }
-        else if (cantidad==1) {
-            for (int i = 0; i < 1; i++) {
-                panelGris.add(new JLabel(deposito.get().getIcon()));
-            }
 
-        }
+        panelGris.revalidate();
+        panelGris.repaint();
 
     }
 }

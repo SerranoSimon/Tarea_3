@@ -9,14 +9,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class PanelCompraExp extends JPanel implements ActionListener {
+public class PanelCompraExp extends JPanel  {
     private PanelBotonesSeleccion panelBotonesSeleccion;
     private PanelVuelto panelVuelto;
     private JButton rellenar;
-    private Expendedor exp;
     public PanelCompraExp(Expendedor exp) {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        this.exp=exp;
         //Titulo
         JLabel titulo = new JLabel("EXPENDEDOR");
         titulo.setHorizontalAlignment(JLabel.CENTER);
@@ -24,6 +22,7 @@ public class PanelCompraExp extends JPanel implements ActionListener {
         titulo.setPreferredSize(new Dimension(130, titulo.getPreferredSize().height));
         //Boton rellena depositos
         this.rellenar= new JButton("Rellenar depósitos vacíos");
+        rellenar.setActionCommand("rellenar");
         rellenar.setAlignmentX(Component.CENTER_ALIGNMENT);
         rellenar.setPreferredSize(new Dimension(130, 30));
 
@@ -74,11 +73,13 @@ public class PanelCompraExp extends JPanel implements ActionListener {
 
     }
 
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==rellenar){
-            exp.rellenarDepositos();
-        }
+    public JButton getRellenar(){
+        return rellenar;
     }
+    public PanelBotonesSeleccion getPanelBotonesSeleccion(){
+        return panelBotonesSeleccion;
+    }
+
+
+
 }

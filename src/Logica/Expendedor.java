@@ -129,9 +129,8 @@ public class Expendedor {
 
 
     }
-    public Producto getProducto(){
-        return productoEntregado;
-    }
+    public Producto getProductoEntregado(){
+        return productoEntregado;}
     public void rellenarDepositos(){
         int k=0; //k es para que no se repitan los numeros de serie al ir llenando
         if(coca.getArr().size()==0){
@@ -146,7 +145,7 @@ public class Expendedor {
         }
         if(fanta.getArr().size()==0){
             for(int i=0;i<capacidadMaximaDeposito;i++){
-                fanta.add(new Sprite(305+i+k));
+                fanta.add(new Fanta(305+i+k));
             }
         }
         if(snickers.getArr().size()==0){
