@@ -37,9 +37,9 @@ public class PanelComprador extends JPanel {
         panelMonedas.setVisible(false);
 
 
-        JButton moneda100 = crearBoton("$100", 100);
-        JButton moneda500 = crearBoton("$500",  500);
-        JButton moneda1000 = crearBoton("$1000",  1000);
+        JButton moneda100 = crearBoton("Sacar moneda de $100", 100);
+        JButton moneda500 = crearBoton("Sacar moneda de $500",  500);
+        JButton moneda1000 = crearBoton("Sacar billete de $1000",  1000);
 
         panelMonedas.add(moneda100);
         panelMonedas.add(moneda500);
