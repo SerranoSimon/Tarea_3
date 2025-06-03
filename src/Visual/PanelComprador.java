@@ -1,5 +1,6 @@
 package Visual;
 
+import Logica.Moneda;
 import Logica.Moneda100;
 import Logica.Moneda500;
 import Logica.Moneda1000;
@@ -35,11 +36,27 @@ public class PanelComprador extends JPanel {
         panelMonedas.setBackground(Color.WHITE);
         panelMonedas.setBorder(BorderFactory.createEmptyBorder(10, 10, 20, 10));
         panelMonedas.setVisible(false);
+        ImageIcon imagen500= new ImageIcon("resources/imagenes/moneda500.png");
+        ImageIcon imagen1000= new ImageIcon("resources/imagenes/moneda1000.png");
+        ImageIcon imagen100 = new ImageIcon("resources/imagenes/moneda100.png");
+        JButton moneda100 = crearBoton("Sacar moneda de $100",100);
+        JButton moneda500 = crearBoton("Sacar moneda de $500",500);
+        JButton moneda1000 = crearBoton("Sacar billete de $1000",1000);
 
+        moneda100.setIcon(imagen100);
+        moneda100.setHorizontalTextPosition(JButton.CENTER);
+        moneda100.setVerticalTextPosition(JButton.BOTTOM);
+        moneda100.setIconTextGap(15);
 
-        JButton moneda100 = crearBoton("Sacar moneda de $100", 100);
-        JButton moneda500 = crearBoton("Sacar moneda de $500",  500);
-        JButton moneda1000 = crearBoton("Sacar billete de $1000",  1000);
+        moneda500.setIcon(imagen500);
+        moneda500.setHorizontalTextPosition(JButton.CENTER);
+        moneda500.setVerticalTextPosition(JButton.BOTTOM);
+        moneda500.setIconTextGap(15);
+
+        moneda1000.setIcon(imagen1000);
+        moneda1000.setHorizontalTextPosition(JButton.CENTER);
+        moneda1000.setVerticalTextPosition(JButton.BOTTOM);
+        moneda1000.setIconTextGap(15);
 
         panelMonedas.add(moneda100);
         panelMonedas.add(moneda500);
