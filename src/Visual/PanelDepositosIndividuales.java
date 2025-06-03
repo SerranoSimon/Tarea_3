@@ -53,14 +53,13 @@ public class PanelDepositosIndividuales extends JPanel {
 
     }
     public void actualizar(){
-        panelGris.removeAll();
-        int cantidad=deposito.getArr().size();
-        for (int i = 0; i < cantidad; i++) {
-            panelGris.add(new JLabel(deposito.getArr().get(i).getIcon()));
-        }
-
+        panelGris.remove(deposito.getArr().size());
         panelGris.revalidate();
         panelGris.repaint();
+
+    }
+    public void rellenar(){
+
 
     }
 }
