@@ -71,6 +71,7 @@ public class Expendedor {
         return MonVu.get();
     }
     public DepositoGenerico<Moneda> getMonVu(){return MonVu;}
+    public DepositoGenerico<Moneda> getDepositoMonedas(){ return depositoMonedas;}
 
     /**
      * Metodo encargado de realizar la compra,La valida recibiendo una moneda y la numeracion

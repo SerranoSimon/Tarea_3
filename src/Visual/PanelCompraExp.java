@@ -13,6 +13,7 @@ public class PanelCompraExp extends JPanel  {
     private PanelBotonesSeleccion panelBotonesSeleccion;
     private PanelVuelto panelVuelto;
     private JButton rellenar;
+    private PanelDepositoMonedas DepositoMonedas;
     public PanelCompraExp(Expendedor exp) {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         //Titulo
@@ -55,9 +56,26 @@ public class PanelCompraExp extends JPanel  {
         panelVuelto.setAlignmentX(Component.CENTER_ALIGNMENT);
         panelVuelto.setMaximumSize(new Dimension(100,70));
 
+        //Deposito de monedas Texto
+        JLabel depMonText = new JLabel("Deposito de monedas");
+        depMonText.setHorizontalAlignment(JLabel.CENTER);
+       depMonText.setAlignmentX(Component.CENTER_ALIGNMENT);
+       depMonText.setPreferredSize(new Dimension(130, vueltoTexto.getPreferredSize().height));
+
+        //Deposito de Monedas
+        this.DepositoMonedas=new PanelDepositoMonedas(exp);
+        DepositoMonedas.setAlignmentX(Component.CENTER_ALIGNMENT);
+        DepositoMonedas.setMaximumSize(new Dimension(120,30));
+
+
+
 
         this.add(Box.createVerticalStrut(20));
         this.add(titulo);
+        this.add(Box.createVerticalStrut(20));
+        this.add(depMonText);
+        this.add(Box.createVerticalStrut(20));
+        this.add(DepositoMonedas);
         this.add(Box.createVerticalStrut(50));
         this.add(rellenar);
         this.add(Box.createVerticalStrut(20));
@@ -78,6 +96,9 @@ public class PanelCompraExp extends JPanel  {
     }
     public PanelBotonesSeleccion getPanelBotonesSeleccion(){
         return panelBotonesSeleccion;
+    }
+    public PanelDepositoMonedas getPanelDepositoMonedas(){
+        return DepositoMonedas;
     }
 
 

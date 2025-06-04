@@ -1,5 +1,7 @@
 package Logica;
 
+import javax.swing.*;
+
 /**
  * Clase abstracta Moneda, cada moneda tiene un valor y una serie dada por su HashCode
  * implementa Comparable para así compararlas por su valor
@@ -51,5 +53,6 @@ public abstract class Moneda implements Comparable<Moneda>{
             return 0;
         }
     }
+    public abstract ImageIcon getIcon();
 
 }

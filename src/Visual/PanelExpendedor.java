@@ -68,28 +68,32 @@ public class PanelExpendedor extends JPanel implements ActionListener {
                         panelDepositos.getPanelesDepositosProductos().get(4).rellenar();
                     }
 
-
                     break;
                 case "1":
                     exp.comprarProducto(new Moneda1000(),Productos.COCACOLA);
                     panelDepositos.getPanelesDepositosProductos().get(0).actualizar();
+                    panelCompraExp.getPanelDepositoMonedas().actualizar();
 
                     break;
                 case "2":
                     exp.comprarProducto(new Moneda1000(),Productos.SPRITE);
                     panelDepositos.getPanelesDepositosProductos().get(1).actualizar();
+                    panelCompraExp.getPanelDepositoMonedas().actualizar();
                     break;
                 case "3":
                     exp.comprarProducto(new Moneda1000(),Productos.FANTA);
                     panelDepositos.getPanelesDepositosProductos().get(2).actualizar();
+                    panelCompraExp.getPanelDepositoMonedas().actualizar();
                     break;
                 case "4":
-                    exp.comprarProducto(new Moneda1000(),Productos.SUPER8);
+                    exp.comprarProducto(new Moneda500(),Productos.SUPER8);
                     panelDepositos.getPanelesDepositosProductos().get(3).actualizar();
+                    panelCompraExp.getPanelDepositoMonedas().actualizar();
                     break;
                 case "5":
                     exp.comprarProducto(new Moneda1000(),Productos.SNICKERS);
                     panelDepositos.getPanelesDepositosProductos().get(4).actualizar();
+                    panelCompraExp.getPanelDepositoMonedas().actualizar();
                     break;
 
             }
