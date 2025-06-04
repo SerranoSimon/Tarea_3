@@ -47,11 +47,28 @@ public class PanelExpendedor extends JPanel implements ActionListener {
         try {
             switch (boton) {
                 case "rellenar":
-
-                    for(PanelDepositosIndividuales p: panelDepositos.getPanelesDepositosProductos()) {
-                        p.rellenar();
-                        exp.rellenarDepositos();
+                    if(exp.getDeposito(Productos.COCACOLA).getArr().size()==0){
+                        exp.rellenarDeposito(Productos.COCACOLA);
+                        panelDepositos.getPanelesDepositosProductos().get(0).rellenar();
                     }
+                    if(exp.getDeposito(Productos.SPRITE).getArr().size()==0){
+                        exp.rellenarDeposito(Productos.SPRITE);
+                        panelDepositos.getPanelesDepositosProductos().get(1).rellenar();
+                    }
+                    if(exp.getDeposito(Productos.FANTA).getArr().size()==0){
+                        exp.rellenarDeposito(Productos.FANTA);
+                        panelDepositos.getPanelesDepositosProductos().get(2).rellenar();
+                    }
+                    if(exp.getDeposito(Productos.SUPER8).getArr().size()==0){
+                        exp.rellenarDeposito(Productos.SUPER8);
+                        panelDepositos.getPanelesDepositosProductos().get(3).rellenar();
+                    }
+                    if(exp.getDeposito(Productos.SNICKERS).getArr().size()==0){
+                        exp.rellenarDeposito(Productos.SNICKERS);
+                        panelDepositos.getPanelesDepositosProductos().get(4).rellenar();
+                    }
+
+
                     break;
                 case "1":
                     exp.comprarProducto(new Moneda1000(),Productos.COCACOLA);

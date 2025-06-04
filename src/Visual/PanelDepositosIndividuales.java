@@ -52,6 +52,9 @@ public class PanelDepositosIndividuales extends JPanel {
         }
 
     }
+    public DepositoGenerico<Producto> getDeposito(){
+        return deposito;
+    }
     public void actualizar(){
         panelGris.remove(deposito.getArr().size());
         panelGris.revalidate();
@@ -59,6 +62,11 @@ public class PanelDepositosIndividuales extends JPanel {
 
     }
     public void rellenar(){
+        for (int i = 0; i < 5; i++) {
+            panelGris.add(new JLabel(deposito.getArr().get(i).getIcon()));
+        }
+        panelGris.revalidate();
+        panelGris.repaint();
 
 
     }
