@@ -52,7 +52,7 @@ public class PanelCompraExp extends JPanel  {
         vueltoTexto.setAlignmentX(Component.CENTER_ALIGNMENT);
         vueltoTexto.setPreferredSize(new Dimension(130, vueltoTexto.getPreferredSize().height));
         //Vuelto panel
-        this.panelVuelto=new PanelVuelto();
+        this.panelVuelto=new PanelVuelto(exp);
         panelVuelto.setAlignmentX(Component.CENTER_ALIGNMENT);
         panelVuelto.setMaximumSize(new Dimension(100,70));
 
@@ -101,6 +101,7 @@ public class PanelCompraExp extends JPanel  {
         return DepositoMonedas;
     }
 
-
-
+    public PanelVuelto getPanelVuelto() {
+        return panelVuelto;
+    }
 }

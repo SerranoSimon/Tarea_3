@@ -77,6 +77,7 @@ public class PanelExpendedor extends JPanel implements ActionListener {
                     panelDepositos.getPanelesDepositosProductos().get(0).actualizar();
                     panelCompraExp.getPanelDepositoMonedas().actualizar();
                     panelComprador.removerMonedaSelecc();
+                    panelCompraExp.getPanelVuelto().mostrarVuelto();
 
                     break;
                 case "2":
@@ -84,18 +85,21 @@ public class PanelExpendedor extends JPanel implements ActionListener {
                     panelDepositos.getPanelesDepositosProductos().get(1).actualizar();
                     panelCompraExp.getPanelDepositoMonedas().actualizar();
                     panelComprador.removerMonedaSelecc();
+                    panelCompraExp.getPanelVuelto().mostrarVuelto();
                     break;
                 case "3":
                     exp.comprarProducto(m,Productos.FANTA);
                     panelDepositos.getPanelesDepositosProductos().get(2).actualizar();
                     panelCompraExp.getPanelDepositoMonedas().actualizar();
                     panelComprador.removerMonedaSelecc();
+                    panelCompraExp.getPanelVuelto().mostrarVuelto();
                     break;
                 case "4":
                     exp.comprarProducto(m,Productos.SUPER8);
                     panelDepositos.getPanelesDepositosProductos().get(3).actualizar();
                     panelCompraExp.getPanelDepositoMonedas().actualizar();
                     panelComprador.removerMonedaSelecc();
+                    panelCompraExp.getPanelVuelto().mostrarVuelto();
                     break;
 
                 case "5":
@@ -103,6 +107,7 @@ public class PanelExpendedor extends JPanel implements ActionListener {
                     panelDepositos.getPanelesDepositosProductos().get(4).actualizar();
                     panelCompraExp.getPanelDepositoMonedas().actualizar();
                     panelComprador.removerMonedaSelecc();
+                    panelCompraExp.getPanelVuelto().mostrarVuelto();
                     break;
 
             }
