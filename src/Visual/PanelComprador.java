@@ -6,93 +6,113 @@ import Logica.Moneda500;
 import Logica.Moneda1000;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PanelComprador extends JPanel {
     private JButton toggleBilletera = new JButton("Abrir Billetera");
-    private JPanel panelMonedas = new JPanel();
+    private JButton recargarBilletera = new JButton("Recargar Billetera");
+    private JPanel panelBilletera = new JPanel();
+    private JPanel panelControles = new JPanel();
     private boolean billeteraAbierta = false;
-    private int dinero = 0;
-    private JLabel contador = new JLabel("Tienes: $0");
+    private JLabel contador = new JLabel("Seleccione una moneda");
+    private List<Moneda> monedasBilletera = new ArrayList<>();
+    private List<JButton> botonesMonedas = new ArrayList<>();
+    private Moneda monedaSeleccionada = null;
 
     public PanelComprador() {
         this.setLayout(new BorderLayout());
         this.setBackground(Color.WHITE);
 
-
         contador.setFont(new Font("Arial", Font.BOLD, 16));
         contador.setHorizontalAlignment(SwingConstants.CENTER);
         contador.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
 
+        acBotones();
+
+        panelBilletera.setLayout(new GridLayout(0, 4, 5, 5));
+        panelBilletera.setBackground(new Color(230, 230, 250));
+        panelBilletera.setVisible(false);
+
+        panelControles.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
+        panelControles.add(toggleBilletera);
+        panelControles.add(recargarBilletera);
+
+        recargarBilletera();
+
+        add(contador, BorderLayout.NORTH);
+        add(panelBilletera, BorderLayout.CENTER);
+        add(panelControles, BorderLayout.SOUTH);
+    }
+
+    private void acBotones() {
 
         toggleBilletera.setFont(new Font("Arial", Font.BOLD, 14));
         toggleBilletera.setBackground(new Color(240, 240, 240));
-        toggleBilletera.setFocusable(false);
         toggleBilletera.addActionListener(e -> toggleBilletera());
 
 
-        panelMonedas.setLayout(new GridLayout(1, 3, 10, 10));
-        panelMonedas.setBackground(Color.WHITE);
-        panelMonedas.setBorder(BorderFactory.createEmptyBorder(10, 10, 20, 10));
-        panelMonedas.setVisible(false);
-        ImageIcon imagen500= new ImageIcon("resources/imagenes/moneda500.png");
-        ImageIcon imagen1000= new ImageIcon("resources/imagenes/moneda1000.png");
-        ImageIcon imagen100 = new ImageIcon("resources/imagenes/moneda100.png");
-        JButton moneda100 = crearBoton("Sacar moneda de $100",100);
-        JButton moneda500 = crearBoton("Sacar moneda de $500",500);
-        JButton moneda1000 = crearBoton("Sacar billete de $1000",1000);
-
-        moneda100.setIcon(imagen100);
-        moneda100.setHorizontalTextPosition(JButton.CENTER);
-        moneda100.setVerticalTextPosition(JButton.BOTTOM);
-        moneda100.setIconTextGap(15);
-
-        moneda500.setIcon(imagen500);
-        moneda500.setHorizontalTextPosition(JButton.CENTER);
-        moneda500.setVerticalTextPosition(JButton.BOTTOM);
-        moneda500.setIconTextGap(15);
-
-        moneda1000.setIcon(imagen1000);
-        moneda1000.setHorizontalTextPosition(JButton.CENTER);
-        moneda1000.setVerticalTextPosition(JButton.BOTTOM);
-        moneda1000.setIconTextGap(15);
-
-        panelMonedas.add(moneda100);
-        panelMonedas.add(moneda500);
-        panelMonedas.add(moneda1000);
-
-
-        add(contador, BorderLayout.NORTH);
-        add(panelMonedas, BorderLayout.CENTER);
-        add(toggleBilletera, BorderLayout.SOUTH);
+        recargarBilletera.setFont(new Font("Arial", Font.BOLD, 14));
+        recargarBilletera.setBackground(new Color(200, 255, 200));
+        recargarBilletera.addActionListener(e -> recargarBilletera());
     }
 
-    private JButton crearBoton(String txt, int valor) {
-        JButton boton = new JButton(txt);
-        boton.setFont(new Font("Arial", Font.PLAIN, 12));
-        boton.setBackground(Color.WHITE);
-        boton.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
+    private void recargarBilletera() {
+        //quiero que mi monedero comience con cierta cantidad de dinero
+        agregarMoneda(new Moneda100());
+        agregarMoneda(new Moneda100());
+        agregarMoneda(new Moneda500());
+        agregarMoneda(new Moneda500());
+        agregarMoneda(new Moneda1000());
+        acBilletera();
+    }
 
-        boton.addActionListener(e -> {
-            switch (valor) {
-                case 100: new Moneda100(); break;
-                case 500: new Moneda500(); break;
-                case 1000: new Moneda1000(); break;
-            }
-            dinero += valor;
-            contador.setText("Tienes: $" + dinero);
-            JOptionPane.showMessageDialog(this, "Sacaste: $" + valor);
+    private void agregarMoneda(Moneda moneda) {
+        monedasBilletera.add(moneda);
+    }
+
+    private void acBilletera() {
+        panelBilletera.removeAll();
+        botonesMonedas.clear();
+
+        for (Moneda moneda : monedasBilletera) {
+            JButton botonMoneda = crearMoneda(moneda);
+            panelBilletera.add(botonMoneda);
+            botonesMonedas.add(botonMoneda);
+        }
+
+        panelBilletera.revalidate();
+        panelBilletera.repaint();
+    }
+
+    private JButton crearMoneda(Moneda moneda) {
+        JButton botonMoneda = new JButton();
+        botonMoneda.setPreferredSize(new Dimension(80, 80));
+        ImageIcon icono = getIcon(moneda.getValor());
+        botonMoneda.setIcon(new ImageIcon(icono.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
+        botonMoneda.setText("$" + moneda.getValor());
+        botonMoneda.setVerticalTextPosition(SwingConstants.BOTTOM);
+        botonMoneda.setHorizontalTextPosition(SwingConstants.CENTER);
+        botonMoneda.setBackground(Color.WHITE);
+        botonMoneda.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        botonMoneda.addActionListener(e -> {
+            monedaSeleccionada = moneda;
+            contador.setText("Seleccionado: " + moneda.getSerie());
+            botonMoneda.setVisible(false);
         });
 
-        return boton;
+        return botonMoneda;
+    }
+
+    private ImageIcon getIcon(int valor) {
+            String ruta = "resources/imagenes/moneda" + valor + ".png";
+            return new ImageIcon(ruta);
     }
 
     private void toggleBilletera() {
         billeteraAbierta = !billeteraAbierta;
-        panelMonedas.setVisible(billeteraAbierta);
+        panelBilletera.setVisible(billeteraAbierta);
         toggleBilletera.setText(billeteraAbierta ? "Cerrar Billetera" : "Abrir Billetera");
-
     }
 
     @Override
@@ -100,5 +120,9 @@ public class PanelComprador extends JPanel {
         super.paintComponent(g);
         g.setColor(Color.LIGHT_GRAY);
         g.fillRect(0, 0, getWidth(), getHeight());
+    }
+
+    public Moneda getMonedaSeleccionada() {
+        return monedaSeleccionada;
     }
 }
