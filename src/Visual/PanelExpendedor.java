@@ -11,8 +11,10 @@ public class PanelExpendedor extends JPanel implements ActionListener {
     private Expendedor exp;
     private PanelDepositos panelDepositos;
     private PanelCompraExp panelCompraExp;
+    private PanelComprador panelComprador;
 
-    public PanelExpendedor() {
+    public PanelExpendedor(PanelComprador panelComprador) {
+        this.panelComprador=panelComprador;
         this.exp=new Expendedor(5);
 
         this.setLayout(new BorderLayout());
@@ -43,6 +45,7 @@ public class PanelExpendedor extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        Moneda m= panelComprador.getMonedaSeleccionada();
         String boton = e.getActionCommand();
         try {
             switch (boton) {
@@ -70,30 +73,36 @@ public class PanelExpendedor extends JPanel implements ActionListener {
 
                     break;
                 case "1":
-                    exp.comprarProducto(new Moneda1000(),Productos.COCACOLA);
+                    exp.comprarProducto(m,Productos.COCACOLA);
                     panelDepositos.getPanelesDepositosProductos().get(0).actualizar();
                     panelCompraExp.getPanelDepositoMonedas().actualizar();
+                    panelComprador.removerMonedaSelecc();
 
                     break;
                 case "2":
-                    exp.comprarProducto(new Moneda1000(),Productos.SPRITE);
+                    exp.comprarProducto(m,Productos.SPRITE);
                     panelDepositos.getPanelesDepositosProductos().get(1).actualizar();
                     panelCompraExp.getPanelDepositoMonedas().actualizar();
+                    panelComprador.removerMonedaSelecc();
                     break;
                 case "3":
-                    exp.comprarProducto(new Moneda1000(),Productos.FANTA);
+                    exp.comprarProducto(m,Productos.FANTA);
                     panelDepositos.getPanelesDepositosProductos().get(2).actualizar();
                     panelCompraExp.getPanelDepositoMonedas().actualizar();
+                    panelComprador.removerMonedaSelecc();
                     break;
                 case "4":
-                    exp.comprarProducto(new Moneda500(),Productos.SUPER8);
+                    exp.comprarProducto(m,Productos.SUPER8);
                     panelDepositos.getPanelesDepositosProductos().get(3).actualizar();
                     panelCompraExp.getPanelDepositoMonedas().actualizar();
+                    panelComprador.removerMonedaSelecc();
                     break;
+
                 case "5":
-                    exp.comprarProducto(new Moneda1000(),Productos.SNICKERS);
+                    exp.comprarProducto(m,Productos.SNICKERS);
                     panelDepositos.getPanelesDepositosProductos().get(4).actualizar();
                     panelCompraExp.getPanelDepositoMonedas().actualizar();
+                    panelComprador.removerMonedaSelecc();
                     break;
 
             }

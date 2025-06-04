@@ -12,11 +12,12 @@ public class PanelPrincipal extends JPanel{
         this.setLayout(new GridLayout(1,2));
 
         this.setSize(1920,1080);
-        panelExpendedor=new PanelExpendedor();
-        this.setBackground(Color.WHITE);
 
         panelComprador = new PanelComprador();
         panelComprador.setPreferredSize(new Dimension(300,300));
+
+        panelExpendedor=new PanelExpendedor(panelComprador);
+        this.setBackground(Color.WHITE);
 
 
 

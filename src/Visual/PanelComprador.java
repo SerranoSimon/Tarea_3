@@ -125,4 +125,11 @@ public class PanelComprador extends JPanel {
     public Moneda getMonedaSeleccionada() {
         return monedaSeleccionada;
     }
+    public void removerMonedaSelecc(){
+        if(monedaSeleccionada!=null){
+            monedasBilletera.remove(monedaSeleccionada);
+            monedaSeleccionada=null;
+            acBilletera();
+        }
+    }
 }
