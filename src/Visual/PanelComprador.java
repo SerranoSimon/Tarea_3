@@ -7,7 +7,7 @@ import Logica.Moneda1000;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class PanelComprador extends JPanel {
     private JButton toggleBilletera = new JButton("Abrir Billetera");
@@ -16,8 +16,8 @@ public class PanelComprador extends JPanel {
     private JPanel panelControles = new JPanel();
     private boolean billeteraAbierta = false;
     private JLabel contador = new JLabel("Seleccione una moneda");
-    private List<Moneda> monedasBilletera = new ArrayList<>();
-    private List<JButton> botonesMonedas = new ArrayList<>();
+    private ArrayList<Moneda> monedasBilletera = new ArrayList<>();
+    private ArrayList<JButton> botonesMonedas = new ArrayList<>();
     private Moneda monedaSeleccionada = null;
 
     public PanelComprador() {
