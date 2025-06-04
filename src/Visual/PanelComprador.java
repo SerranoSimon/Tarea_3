@@ -31,7 +31,7 @@ public class PanelComprador extends JPanel {
         acBotones();
 
         panelBilletera.setLayout(new GridLayout(0, 4, 5, 5));
-        panelBilletera.setBackground(new Color(230, 230, 250));
+        panelBilletera.setBackground(Color.LIGHT_GRAY);
         panelBilletera.setVisible(false);
 
         panelControles.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
@@ -93,7 +93,7 @@ public class PanelComprador extends JPanel {
         botonMoneda.setText("$" + moneda.getValor());
         botonMoneda.setVerticalTextPosition(SwingConstants.BOTTOM);
         botonMoneda.setHorizontalTextPosition(SwingConstants.CENTER);
-        botonMoneda.setBackground(Color.WHITE);
+        botonMoneda.setBackground(Color.LIGHT_GRAY);
         botonMoneda.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         botonMoneda.addActionListener(e -> {
             monedaSeleccionada = moneda;
