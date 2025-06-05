@@ -111,6 +111,7 @@ public class PanelExpendedor extends JPanel implements ActionListener {
                     break;
 
             }
+            System.out.println(exp.getProductoEntregado());
             panelDepositos.getPanelProductoEntregado().mostrarProducto(exp.getProductoEntregado());
         } catch (NoHayProductoException | PagoIncorrectoException | PagoInsuficienteException ex) {
             System.out.println("Error: "+ ex.getMessage());

@@ -58,8 +58,6 @@ public class PanelComprador extends JPanel {
 
     private void recargarBilletera() {
         //quiero que mi monedero comience con cierta cantidad de dinero
-        agregarMoneda(new Moneda100());
-        agregarMoneda(new Moneda100());
         agregarMoneda(new Moneda500());
         agregarMoneda(new Moneda500());
         agregarMoneda(new Moneda1000());
