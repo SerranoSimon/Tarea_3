@@ -14,45 +14,44 @@ public class PanelCompraExp extends JPanel  {
     private PanelVuelto panelVuelto;
     private JButton rellenar;
     private PanelDepositoMonedas DepositoMonedas;
-    public PanelCompraExp(Expendedor exp) {
+    public PanelCompraExp(Expendedor exp, PanelComprador panelComprador) {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         //Titulo
         JLabel titulo = new JLabel("EXPENDEDOR");
         titulo.setHorizontalAlignment(JLabel.CENTER);
         titulo.setAlignmentX(Component.CENTER_ALIGNMENT);
-        titulo.setPreferredSize(new Dimension(130, titulo.getPreferredSize().height));
+
         //Boton rellena depositos
         this.rellenar= new JButton("Rellenar depósitos vacíos");
         rellenar.setActionCommand("rellenar");
         rellenar.setAlignmentX(Component.CENTER_ALIGNMENT);
-        rellenar.setPreferredSize(new Dimension(130, 30));
+
 
 
         //Texto seleccion
         JLabel seleccionText = new JLabel("Seleccione su producto:");
         seleccionText.setHorizontalAlignment(JLabel.CENTER);
         seleccionText.setAlignmentX(Component.CENTER_ALIGNMENT);
-        seleccionText.setPreferredSize(new Dimension(130, seleccionText.getPreferredSize().height));
+
         //Texto sobre precios usando HTML
         String texto="<html> 1.Cococola $800<br>2.Sprite $800<br>3.Fanta $700<br>4.Super8 $300<br>5.Snickers $600";
         JLabel textoPrecios=new JLabel(texto);
         textoPrecios.setHorizontalAlignment(JLabel.CENTER);
         textoPrecios.setAlignmentX(Component.CENTER_ALIGNMENT);
-        textoPrecios.setPreferredSize(new Dimension(130, seleccionText.getPreferredSize().height));
+
 
         //Botones seleccion
         this.panelBotonesSeleccion=new PanelBotonesSeleccion();
         panelBotonesSeleccion.setAlignmentX(Component.CENTER_ALIGNMENT);
-        panelBotonesSeleccion.setPreferredSize(new Dimension(120, 100));
         panelBotonesSeleccion.setMaximumSize(new Dimension(120, 100));
 
         //Vuelto Texto
         JLabel vueltoTexto = new JLabel("Vuelto");
         vueltoTexto.setHorizontalAlignment(JLabel.CENTER);
         vueltoTexto.setAlignmentX(Component.CENTER_ALIGNMENT);
-        vueltoTexto.setPreferredSize(new Dimension(130, vueltoTexto.getPreferredSize().height));
+
         //Vuelto panel
-        this.panelVuelto=new PanelVuelto(exp);
+        this.panelVuelto=new PanelVuelto(exp, panelComprador);
         panelVuelto.setAlignmentX(Component.CENTER_ALIGNMENT);
         panelVuelto.setMaximumSize(new Dimension(100,70));
 
@@ -60,13 +59,16 @@ public class PanelCompraExp extends JPanel  {
         JLabel depMonText = new JLabel("Deposito de monedas");
         depMonText.setHorizontalAlignment(JLabel.CENTER);
        depMonText.setAlignmentX(Component.CENTER_ALIGNMENT);
-       depMonText.setPreferredSize(new Dimension(130, vueltoTexto.getPreferredSize().height));
+
 
         //Deposito de Monedas
         this.DepositoMonedas=new PanelDepositoMonedas(exp);
         DepositoMonedas.setAlignmentX(Component.CENTER_ALIGNMENT);
         DepositoMonedas.setMaximumSize(new Dimension(120,30));
-
+        //Recoger vuelto Texto
+        JLabel RecogeVueltoText = new JLabel("Click en el deposito para recoger vuelto");
+        RecogeVueltoText.setHorizontalAlignment(JLabel.CENTER);
+       RecogeVueltoText.setAlignmentX(Component.CENTER_ALIGNMENT);
 
 
 
@@ -88,6 +90,8 @@ public class PanelCompraExp extends JPanel  {
         this.add(vueltoTexto);
         this.add(Box.createVerticalStrut(10));
         this.add(panelVuelto);
+        this.add(RecogeVueltoText);
+
 
     }
 

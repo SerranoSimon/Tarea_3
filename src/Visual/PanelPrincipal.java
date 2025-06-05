@@ -9,6 +9,7 @@ public class PanelPrincipal extends JPanel{
 
     public PanelPrincipal(){
         super();
+        Expendedor exp=new Expendedor(5);
         this.setLayout(new GridLayout(1,2));
 
         this.setSize(1920,1080);
@@ -16,7 +17,7 @@ public class PanelPrincipal extends JPanel{
         panelComprador = new PanelComprador();
         panelComprador.setPreferredSize(new Dimension(300,300));
 
-        panelExpendedor=new PanelExpendedor(panelComprador);
+        panelExpendedor=new PanelExpendedor(panelComprador, exp);
         this.setBackground(Color.WHITE);
 
 

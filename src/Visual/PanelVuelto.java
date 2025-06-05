@@ -4,14 +4,33 @@ import Logica.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.Collections;
 
 public class PanelVuelto extends JPanel {
     private DepositoGenerico<Moneda> MonVu;
-    public PanelVuelto(Expendedor exp){
+    private PanelComprador panelComprador;
+    public PanelVuelto(Expendedor exp, PanelComprador panelComprador){
         this.setBackground(Color.BLACK);
         this.setLayout(new FlowLayout());
         this.MonVu=exp.getMonVu();
+        this.panelComprador=panelComprador;
+
+
+
+        this.addMouseListener(new MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if(MonVu.getArr().size()==0){
+                    JOptionPane.showMessageDialog(null, "¡No hay vuelto por recoger!");
+                }
+                else {
+                    vueltoRecoger();
+                }
+            }
+        });
 
     }
     public void mostrarVuelto(){
@@ -22,6 +41,17 @@ public class PanelVuelto extends JPanel {
         }
         this.revalidate();
         this.repaint();
+
+    }
+    public void vueltoRecoger(){
+        this.removeAll();
+        for(int i=0;i<MonVu.getArr().size();i++){
+            panelComprador.getMonedasBilletera().add(MonVu.get());
+        }
+        this.revalidate();
+        this.repaint();
+       panelComprador.acBilletera();
+
 
     }
 }

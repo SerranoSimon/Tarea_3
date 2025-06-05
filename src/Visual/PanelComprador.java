@@ -1,12 +1,11 @@
 package Visual;
 
-import Logica.Moneda;
-import Logica.Moneda100;
-import Logica.Moneda500;
-import Logica.Moneda1000;
+import Logica.*;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class PanelComprador extends JPanel {
@@ -64,6 +63,7 @@ public class PanelComprador extends JPanel {
         agregarMoneda(new Moneda500());
         agregarMoneda(new Moneda500());
         agregarMoneda(new Moneda1000());
+        agregarMoneda(new Moneda1000());
         acBilletera();
     }
 
@@ -71,11 +71,13 @@ public class PanelComprador extends JPanel {
         monedasBilletera.add(moneda);
     }
 
-    private void acBilletera() {
+    public void acBilletera() {
         panelBilletera.removeAll();
         botonesMonedas.clear();
+        Collections.sort(monedasBilletera);
 
-        for (Moneda moneda : monedasBilletera) {
+        for (Moneda moneda : (monedasBilletera)) {
+
             JButton botonMoneda = crearMoneda(moneda);
             panelBilletera.add(botonMoneda);
             botonesMonedas.add(botonMoneda);
@@ -98,7 +100,7 @@ public class PanelComprador extends JPanel {
         botonMoneda.addActionListener(e -> {
             monedaSeleccionada = moneda;
             contador.setText("Seleccionado: " + moneda.getSerie());
-            botonMoneda.setVisible(false);
+            botonMoneda.setVisible(true);
         });
 
         return botonMoneda;
@@ -113,6 +115,14 @@ public class PanelComprador extends JPanel {
         billeteraAbierta = !billeteraAbierta;
         panelBilletera.setVisible(billeteraAbierta);
         toggleBilletera.setText(billeteraAbierta ? "Cerrar Billetera" : "Abrir Billetera");
+    }
+
+    public ArrayList<Moneda> getMonedasBilletera() {
+        return monedasBilletera;
+    }
+
+    public JPanel getPanelBilletera() {
+        return panelBilletera;
     }
 
     @Override

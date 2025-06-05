@@ -13,9 +13,9 @@ public class PanelExpendedor extends JPanel implements ActionListener {
     private PanelCompraExp panelCompraExp;
     private PanelComprador panelComprador;
 
-    public PanelExpendedor(PanelComprador panelComprador) {
+    public PanelExpendedor(PanelComprador panelComprador, Expendedor exp) {
         this.panelComprador=panelComprador;
-        this.exp=new Expendedor(5);
+        this.exp=exp;
 
         this.setLayout(new BorderLayout());
         Border border = BorderFactory.createLineBorder(Color.BLACK);
@@ -23,7 +23,7 @@ public class PanelExpendedor extends JPanel implements ActionListener {
         this.setBorder(border);
 
         this.panelDepositos = new PanelDepositos(exp);
-        this.panelCompraExp = new PanelCompraExp(exp);
+        this.panelCompraExp = new PanelCompraExp(exp,panelComprador);
         this.panelCompraExp.setBackground(Color.PINK);
 
         JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
@@ -113,7 +113,8 @@ public class PanelExpendedor extends JPanel implements ActionListener {
             }
             panelDepositos.getPanelProductoEntregado().mostrarProducto(exp.getProductoEntregado());
         } catch (NoHayProductoException | PagoIncorrectoException | PagoInsuficienteException ex) {
-            throw new RuntimeException(ex);
+            System.out.println("Error: "+ ex.getMessage());
+            JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 }
