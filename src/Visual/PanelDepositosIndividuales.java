@@ -26,7 +26,7 @@ public class PanelDepositosIndividuales extends JPanel {
         rectangulo.setPreferredSize(new Dimension(390, 100)); //
 
         // Contenedor gris de productos
-        this.panelGris = new JPanel(new GridLayout(1, 5, 5, 5)); // da espacio entre productos
+        this.panelGris = new JPanel(new GridLayout(1, dep.getArr().size(), 5, 5)); // da espacio entre productos
         panelGris.setBackground(Color.GRAY);
         panelGris.setPreferredSize(new Dimension(350, 80));
 
@@ -39,15 +39,10 @@ public class PanelDepositosIndividuales extends JPanel {
 
         //Relleno de depositos de acuerdo a lo que se pone en expendedor al crearlo
         int cantidad=deposito.getArr().size();
-        if (cantidad>= 5) {
-            for (int i = 0; i < 5; i++) {
-                panelGris.add(new JLabel(deposito.getArr().get(i).getIcon()));
-            }
-        }
-        else{
+
             for (int i = 0; i < cantidad; i++) {
                 panelGris.add(new JLabel(deposito.getArr().get(i).getIcon()));
-            }
+
 
         }
 
@@ -62,7 +57,7 @@ public class PanelDepositosIndividuales extends JPanel {
 
     }
     public void rellenar(){
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < deposito.getArr().size(); i++) {
             panelGris.add(new JLabel(deposito.getArr().get(i).getIcon()));
         }
         panelGris.revalidate();

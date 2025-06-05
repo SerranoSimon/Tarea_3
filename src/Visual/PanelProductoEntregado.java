@@ -2,12 +2,16 @@ package Visual;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 import Logica.*;
 
 
 public class PanelProductoEntregado extends JPanel {
     private JPanel rectangulo;
     private JPanel depositoProductoEntregado;
+    private Producto productoEntregado;
 
     public PanelProductoEntregado() {
         this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
@@ -28,17 +32,38 @@ public class PanelProductoEntregado extends JPanel {
         this.add(Box.createRigidArea(new Dimension(5, 0)));
         this.add(rectangulo);
         this.add(Box.createRigidArea(new Dimension(5, 0)));
+
+        this.addMouseListener(new MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if(productoEntregado==null){
+                    JOptionPane.showMessageDialog(null, "¡Vacio!");
+                }
+                else {
+                     entregarProducto();
+
+                }
+            }
+        });
     }
 
-    public JPanel getDepositoProductoEntregado() {
-        return depositoProductoEntregado;
-    }
+
     public void mostrarProducto(Producto producto) {
+        this.productoEntregado=producto;
         depositoProductoEntregado.removeAll();
         if (producto != null) {
             depositoProductoEntregado.add(new JLabel(producto.getIcon()));
         }
         depositoProductoEntregado.revalidate();
         depositoProductoEntregado.repaint();
+    }
+    public void entregarProducto(){
+        depositoProductoEntregado.removeAll();
+        JOptionPane.showMessageDialog(null, "Recogiste el producto: " + productoEntregado.consumir() +
+                ", serie: " + productoEntregado.getSerie());
+        productoEntregado = null;
+        this.revalidate();
+        this.repaint();
     }
 }

@@ -138,35 +138,35 @@ public class Expendedor {
 
         switch (p){
             case Productos.COCACOLA:
-                for(int i=0;i<5;i++){
-                    coca.add(new Cocacola(105+i+k));
+                for(int i=0;i<capacidadMaximaDeposito;i++){
+                    coca.add(new Cocacola(100+i+k+capacidadMaximaDeposito));
                 }
                 break;
 
             case Productos.SPRITE:
                 for(int i=0;i<capacidadMaximaDeposito;i++){
-                    sprite.add(new Sprite(205+i+k));
+                    sprite.add(new Sprite(200+i+k+capacidadMaximaDeposito));
                 }
                 break;
 
             case Productos.FANTA:
                 for(int i=0;i<capacidadMaximaDeposito;i++){
-                    fanta.add(new Fanta(305+i+k));
+                    fanta.add(new Fanta(300+i+k+capacidadMaximaDeposito));
                 }
                 break;
 
             case Productos.SNICKERS:
                 for(int i=0;i<capacidadMaximaDeposito;i++){
-                    snickers.add(new Snickers(405+i+k));
+                    snickers.add(new Snickers(400+i+k+capacidadMaximaDeposito));
                 }
                 break;
             case Productos.SUPER8:
                 for(int i=0;i<capacidadMaximaDeposito;i++){
-                    super8.add(new Super8(505+i+k));
+                    super8.add(new Super8(500+i+k+capacidadMaximaDeposito));
                 }
                 break;
         }
-        k+=5;
+        k+=capacidadMaximaDeposito;
 
     }
 }

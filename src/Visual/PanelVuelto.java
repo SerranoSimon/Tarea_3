@@ -44,13 +44,13 @@ public class PanelVuelto extends JPanel {
 
     }
     public void vueltoRecoger(){
-        this.removeAll();
-        for(int i=0;i<MonVu.getArr().size();i++){
+
+            this.remove(0);
+            this.revalidate();
+            this.repaint();
             panelComprador.getMonedasBilletera().add(MonVu.get());
-        }
-        this.revalidate();
-        this.repaint();
-       panelComprador.acBilletera();
+            panelComprador.acBilletera();
+
 
 
     }

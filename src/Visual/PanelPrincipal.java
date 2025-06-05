@@ -9,7 +9,7 @@ public class PanelPrincipal extends JPanel{
 
     public PanelPrincipal(){
         super();
-        Expendedor exp=new Expendedor(5);
+        Expendedor exp=new Expendedor(6);
         this.setLayout(new GridLayout(1,2));
 
         this.setSize(1920,1080);

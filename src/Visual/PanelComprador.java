@@ -14,7 +14,7 @@ public class PanelComprador extends JPanel {
     private JPanel panelBilletera = new JPanel();
     private JPanel panelControles = new JPanel();
     private boolean billeteraAbierta = false;
-    private JLabel contador = new JLabel("Seleccione una moneda");
+    private JLabel text = new JLabel("Seleccione una moneda");
     private ArrayList<Moneda> monedasBilletera = new ArrayList<>();
     private ArrayList<JButton> botonesMonedas = new ArrayList<>();
     private Moneda monedaSeleccionada = null;
@@ -23,13 +23,13 @@ public class PanelComprador extends JPanel {
         this.setLayout(new BorderLayout());
         this.setBackground(Color.WHITE);
 
-        contador.setFont(new Font("Arial", Font.BOLD, 16));
-        contador.setHorizontalAlignment(SwingConstants.CENTER);
-        contador.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
+        text.setFont(new Font("Arial", Font.BOLD, 16));
+        text.setHorizontalAlignment(SwingConstants.CENTER);
+       text.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
 
         acBotones();
 
-        panelBilletera.setLayout(new GridLayout(0, 4, 5, 5));
+        panelBilletera.setLayout(new GridLayout(10,10));
         panelBilletera.setBackground(Color.LIGHT_GRAY);
         panelBilletera.setVisible(false);
 
@@ -39,7 +39,7 @@ public class PanelComprador extends JPanel {
 
         recargarBilletera();
 
-        add(contador, BorderLayout.NORTH);
+        add(text, BorderLayout.NORTH);
         add(panelBilletera, BorderLayout.CENTER);
         add(panelControles, BorderLayout.SOUTH);
     }
@@ -97,7 +97,7 @@ public class PanelComprador extends JPanel {
         botonMoneda.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         botonMoneda.addActionListener(e -> {
             monedaSeleccionada = moneda;
-            contador.setText("Seleccionado: " + moneda.getSerie());
+            text.setText("Seleccionado: " + moneda.getSerie());
             botonMoneda.setVisible(true);
         });
 

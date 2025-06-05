@@ -78,6 +78,7 @@ public class PanelExpendedor extends JPanel implements ActionListener {
                     panelCompraExp.getPanelDepositoMonedas().actualizar();
                     panelComprador.removerMonedaSelecc();
                     panelCompraExp.getPanelVuelto().mostrarVuelto();
+                    panelDepositos.getPanelProductoEntregado().mostrarProducto(exp.getProductoEntregado());
 
                     break;
                 case "2":
@@ -86,6 +87,7 @@ public class PanelExpendedor extends JPanel implements ActionListener {
                     panelCompraExp.getPanelDepositoMonedas().actualizar();
                     panelComprador.removerMonedaSelecc();
                     panelCompraExp.getPanelVuelto().mostrarVuelto();
+                    panelDepositos.getPanelProductoEntregado().mostrarProducto(exp.getProductoEntregado());
                     break;
                 case "3":
                     exp.comprarProducto(m,Productos.FANTA);
@@ -93,6 +95,7 @@ public class PanelExpendedor extends JPanel implements ActionListener {
                     panelCompraExp.getPanelDepositoMonedas().actualizar();
                     panelComprador.removerMonedaSelecc();
                     panelCompraExp.getPanelVuelto().mostrarVuelto();
+                    panelDepositos.getPanelProductoEntregado().mostrarProducto(exp.getProductoEntregado());
                     break;
                 case "4":
                     exp.comprarProducto(m,Productos.SUPER8);
@@ -100,6 +103,7 @@ public class PanelExpendedor extends JPanel implements ActionListener {
                     panelCompraExp.getPanelDepositoMonedas().actualizar();
                     panelComprador.removerMonedaSelecc();
                     panelCompraExp.getPanelVuelto().mostrarVuelto();
+                    panelDepositos.getPanelProductoEntregado().mostrarProducto(exp.getProductoEntregado());
                     break;
 
                 case "5":
@@ -108,11 +112,11 @@ public class PanelExpendedor extends JPanel implements ActionListener {
                     panelCompraExp.getPanelDepositoMonedas().actualizar();
                     panelComprador.removerMonedaSelecc();
                     panelCompraExp.getPanelVuelto().mostrarVuelto();
+                    panelDepositos.getPanelProductoEntregado().mostrarProducto(exp.getProductoEntregado());
                     break;
 
             }
-            System.out.println(exp.getProductoEntregado());
-            panelDepositos.getPanelProductoEntregado().mostrarProducto(exp.getProductoEntregado());
+
         } catch (NoHayProductoException | PagoIncorrectoException | PagoInsuficienteException ex) {
             System.out.println("Error: "+ ex.getMessage());
             JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
