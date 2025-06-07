@@ -7,12 +7,22 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Clase que representa graficamente un expendedor de productos.
+ * Implementa ActionListener para manejar eventos de compra.
+ */
 public class PanelExpendedor extends JPanel implements ActionListener {
     private Expendedor exp;
     private PanelDepositos panelDepositos;
     private PanelCompraExp panelCompraExp;
     private PanelComprador panelComprador;
 
+    /**
+     * Constructor que inicializa el panel del expendedor.
+     * se crean los paneles y se configuran visualmente.
+     * @param panelComprador panel del comprador asociado al expendedor
+     * @param exp expendedor de la lógica del código.
+     */
     public PanelExpendedor(PanelComprador panelComprador, Expendedor exp) {
         this.panelComprador=panelComprador;
         this.exp=exp;
@@ -42,7 +52,10 @@ public class PanelExpendedor extends JPanel implements ActionListener {
             b.addActionListener(this);}
     }
 
-
+    /**
+     * maneja los eventos relacionados a los botones dependiendo de la elección del usuario.
+     * @param e evento a ser manejado.
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         Moneda m= PanelComprador.comprador.getMonedaSeleccionada();
