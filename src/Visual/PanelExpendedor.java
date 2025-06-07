@@ -45,7 +45,7 @@ public class PanelExpendedor extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Moneda m= panelComprador.getMonedaSeleccionada();
+        Moneda m= PanelComprador.comprador.getMonedaSeleccionada();
         String boton = e.getActionCommand();
         try {
             switch (boton) {
@@ -73,7 +73,8 @@ public class PanelExpendedor extends JPanel implements ActionListener {
 
                     break;
                 case "1":
-                    exp.comprarProducto(m,Productos.COCACOLA);
+                    PanelComprador.comprador.comprarProducto(m,Productos.COCACOLA,exp);
+                    //exp.comprarProducto(m,Productos.COCACOLA);
                     panelDepositos.getPanelesDepositosProductos().get(0).actualizar();
                     panelCompraExp.getPanelDepositoMonedas().actualizar();
                     panelComprador.removerMonedaSelecc();
@@ -82,7 +83,8 @@ public class PanelExpendedor extends JPanel implements ActionListener {
 
                     break;
                 case "2":
-                    exp.comprarProducto(m,Productos.SPRITE);
+                    PanelComprador.comprador.comprarProducto(m,Productos.SPRITE,exp);
+                    //exp.comprarProducto(m,Productos.SPRITE);
                     panelDepositos.getPanelesDepositosProductos().get(1).actualizar();
                     panelCompraExp.getPanelDepositoMonedas().actualizar();
                     panelComprador.removerMonedaSelecc();
@@ -90,7 +92,8 @@ public class PanelExpendedor extends JPanel implements ActionListener {
                     panelDepositos.getPanelProductoEntregado().mostrarProducto(exp.getProductoEntregado());
                     break;
                 case "3":
-                    exp.comprarProducto(m,Productos.FANTA);
+                    PanelComprador.comprador.comprarProducto(m,Productos.FANTA,exp);
+                    //exp.comprarProducto(m,Productos.FANTA);
                     panelDepositos.getPanelesDepositosProductos().get(2).actualizar();
                     panelCompraExp.getPanelDepositoMonedas().actualizar();
                     panelComprador.removerMonedaSelecc();
@@ -98,7 +101,8 @@ public class PanelExpendedor extends JPanel implements ActionListener {
                     panelDepositos.getPanelProductoEntregado().mostrarProducto(exp.getProductoEntregado());
                     break;
                 case "4":
-                    exp.comprarProducto(m,Productos.SUPER8);
+                    PanelComprador.comprador.comprarProducto(m,Productos.SUPER8,exp);
+                    //exp.comprarProducto(m,Productos.SUPER8);
                     panelDepositos.getPanelesDepositosProductos().get(3).actualizar();
                     panelCompraExp.getPanelDepositoMonedas().actualizar();
                     panelComprador.removerMonedaSelecc();
@@ -107,7 +111,8 @@ public class PanelExpendedor extends JPanel implements ActionListener {
                     break;
 
                 case "5":
-                    exp.comprarProducto(m,Productos.SNICKERS);
+                    PanelComprador.comprador.comprarProducto(m,Productos.SNICKERS,exp);
+                    //exp.comprarProducto(m,Productos.SNICKERS);
                     panelDepositos.getPanelesDepositosProductos().get(4).actualizar();
                     panelCompraExp.getPanelDepositoMonedas().actualizar();
                     panelComprador.removerMonedaSelecc();

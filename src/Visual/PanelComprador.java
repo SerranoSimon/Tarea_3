@@ -9,6 +9,7 @@ import java.util.Collections;
 
 
 public class PanelComprador extends JPanel {
+    public static Comprador comprador;
     private JButton toggleBilletera = new JButton("Abrir Billetera");
     private JButton recargarBilletera = new JButton("Recargar Billetera");
     private JPanel panelBilletera = new JPanel();
@@ -17,9 +18,10 @@ public class PanelComprador extends JPanel {
     private JLabel text = new JLabel("Seleccione una moneda");
     private ArrayList<Moneda> monedasBilletera = new ArrayList<>();
     private ArrayList<JButton> botonesMonedas = new ArrayList<>();
-    private Moneda monedaSeleccionada = null;
+
 
     public PanelComprador() {
+        PanelComprador.comprador =new Comprador();
         this.setLayout(new BorderLayout());
         this.setBackground(Color.WHITE);
 
@@ -66,15 +68,15 @@ public class PanelComprador extends JPanel {
     }
 
     private void agregarMoneda(Moneda moneda) {
-        monedasBilletera.add(moneda);
+       comprador.getBilletera().add(moneda);
     }
 
     public void acBilletera() {
         panelBilletera.removeAll();
         botonesMonedas.clear();
-        Collections.sort(monedasBilletera);
+        Collections.sort(comprador.getBilletera());
 
-        for (Moneda moneda : (monedasBilletera)) {
+        for (Moneda moneda : (comprador.getBilletera())) {
 
             JButton botonMoneda = crearMoneda(moneda);
             panelBilletera.add(botonMoneda);
@@ -96,7 +98,7 @@ public class PanelComprador extends JPanel {
         botonMoneda.setBackground(Color.LIGHT_GRAY);
         botonMoneda.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         botonMoneda.addActionListener(e -> {
-            monedaSeleccionada = moneda;
+           comprador.setMonedaSelecc(moneda);
             text.setText("Seleccionado: " + moneda.getSerie());
             botonMoneda.setVisible(true);
         });
@@ -119,9 +121,7 @@ public class PanelComprador extends JPanel {
         return monedasBilletera;
     }
 
-    public JPanel getPanelBilletera() {
-        return panelBilletera;
-    }
+
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -130,13 +130,15 @@ public class PanelComprador extends JPanel {
         g.fillRect(0, 0, getWidth(), getHeight());
     }
 
-    public Moneda getMonedaSeleccionada() {
-        return monedaSeleccionada;
-    }
     public void removerMonedaSelecc(){
-        if(monedaSeleccionada!=null){
+        /*if(monedaSeleccionada!=null){
             monedasBilletera.remove(monedaSeleccionada);
             monedaSeleccionada=null;
+            acBilletera();
+        }*/
+        if(comprador.getMonedaSeleccionada()!=null){
+            comprador.getBilletera().remove(comprador.getMonedaSeleccionada());
+            comprador.setMonedaSelecc(null);
             acBilletera();
         }
     }

@@ -48,7 +48,7 @@ public class PanelVuelto extends JPanel {
             this.remove(0);
             this.revalidate();
             this.repaint();
-            panelComprador.getMonedasBilletera().add(MonVu.get());
+            PanelComprador.comprador.getBilletera().add(MonVu.get());
             panelComprador.acBilletera();
 
 
