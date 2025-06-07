@@ -8,9 +8,18 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Collections;
 
+/**
+ * Clase de tipo panel que representa una zona donde se puede recoger el vuelto luego de una compra en un expendedor.
+ */
 public class PanelVuelto extends JPanel {
     private DepositoGenerico<Moneda> MonVu;
     private PanelComprador panelComprador;
+
+    /**
+     * Inicia el panel del vuelto con su expendedor y comprador asociado.
+     * @param exp expendedor logico
+     * @param panelComprador panel del comprador asociado al expendedor.
+     */
     public PanelVuelto(Expendedor exp, PanelComprador panelComprador){
         this.setBackground(Color.BLACK);
         this.setLayout(new FlowLayout());
@@ -33,6 +42,10 @@ public class PanelVuelto extends JPanel {
         });
 
     }
+
+    /**
+     * muestra visualmente las monedas disponibles para recoger con un tamaño reducido.
+     */
     public void mostrarVuelto(){
         this.removeAll();
         Collections.sort(MonVu.getArr());
@@ -43,6 +56,10 @@ public class PanelVuelto extends JPanel {
         this.repaint();
 
     }
+
+    /**
+     *gestiona la recoleccion de vuelto mediante una actualizacion visual, remueve la primera moneda y las transfiere al panel de comprador.
+     */
     public void vueltoRecoger(){
 
             this.remove(0);

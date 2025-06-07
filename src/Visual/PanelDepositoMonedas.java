@@ -10,7 +10,7 @@ import java.util.Collections;
 
 /**
  *Clase que representa visualmente el deposito de monedas de un expendedor
- * muestra las monedas disponibles como iconos pequeños y permite la actualizacion de su visualizacion dependiendo de los eventos.
+ * muestra las monedas almacenadas como iconos pequeños y permite la actualizacion de su visualizacion dependiendo de los eventos.
  */
 public class PanelDepositoMonedas extends JPanel {
     private DepositoGenerico<Moneda> depositoMonedas;
