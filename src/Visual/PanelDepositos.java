@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 /**
  * Clase que gestiona los depositos de productos del expendedor, dependiendo del tipo de producto.
+ * Incluye el panel del producto entregado.
  */
 public class PanelDepositos extends JPanel {
     ArrayList<PanelDepositosIndividuales> panelesDepositosProductos;
@@ -19,6 +20,7 @@ public class PanelDepositos extends JPanel {
     /**
      *constructor que inicia el panel con los depositos de los productos.
      * crea y gestiona los paneles para cada tipo de producto en el expendedor.
+     * crea un nuevo panel de producto entregado.
      * @param exp expendedor del cual se crean los paneles para los depositos.
      */
     public PanelDepositos(Expendedor exp){

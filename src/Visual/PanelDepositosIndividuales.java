@@ -5,12 +5,21 @@ import Logica.*;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Clase que representa los paneles unicamente para los depositos de productos.
+ * Permite manejar el metodo de rellenar depositos.
+ */
 public class PanelDepositosIndividuales extends JPanel {
     private String num;
     private DepositoGenerico<Producto> deposito;
     private ImageIcon icono;
     private JPanel panelGris;
 
+    /**
+     * constructor que inicia un panel para un deposito de productos especifico.
+     * @param dep deposito logico de productos.
+     * @param num identificador numerico del deposito.
+     */
     public PanelDepositosIndividuales(DepositoGenerico<Producto> dep, String num) {
         this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
         this.num = num;
@@ -47,15 +56,29 @@ public class PanelDepositosIndividuales extends JPanel {
         }
 
     }
+
+    /**
+     * metodo para obtener el deposito logico asociado al panel visual.
+     * @return deposito de productos.
+     */
     public DepositoGenerico<Producto> getDeposito(){
         return deposito;
     }
+
+    /**
+     * metodo que permite actualizar los depositos, elimina el ultimo elemento.
+     *
+     */
     public void actualizar(){
         panelGris.remove(deposito.getArr().size());
         panelGris.revalidate();
         panelGris.repaint();
 
     }
+
+    /**
+     * rellena visualmente el deposito con los productos correspondientes.
+     */
     public void rellenar(){
         for (int i = 0; i < deposito.getArr().size(); i++) {
             panelGris.add(new JLabel(deposito.getArr().get(i).getIcon()));
