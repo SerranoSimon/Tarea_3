@@ -7,8 +7,11 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 
-
+/**
+ * Clase que representa la interacción del comprador con su billetera, permite seleccionar monedas para la compra en expendedor.
+ */
 public class PanelComprador extends JPanel {
+
     public static Comprador comprador;
     private JButton toggleBilletera = new JButton("Abrir Billetera");
     private JButton recargarBilletera = new JButton("Recargar Billetera");
@@ -18,6 +21,7 @@ public class PanelComprador extends JPanel {
     private JLabel text = new JLabel("Seleccione una moneda");
     private ArrayList<Moneda> monedasBilletera = new ArrayList<>();
     private ArrayList<JButton> botonesMonedas = new ArrayList<>();
+
 
 
     public PanelComprador() {
@@ -46,6 +50,7 @@ public class PanelComprador extends JPanel {
         add(panelControles, BorderLayout.SOUTH);
     }
 
+
     private void acBotones() {
 
         toggleBilletera.setFont(new Font("Arial", Font.BOLD, 14));
@@ -58,6 +63,9 @@ public class PanelComprador extends JPanel {
         recargarBilletera.addActionListener(e -> recargarBilletera());
     }
 
+    /**
+     * metodo para recargar la billetera con una cantidad de monedas determinada, en este caso, dos monedas de 500 y dos billetes de 1000.
+     */
     private void recargarBilletera() {
         //quiero que mi monedero comience con cierta cantidad de dinero
         agregarMoneda(new Moneda500());
@@ -67,10 +75,17 @@ public class PanelComprador extends JPanel {
         acBilletera();
     }
 
+    /**
+     * añade una moneda a la billetera
+     * @param moneda se refiere a la moneda a añadir.
+     */
     private void agregarMoneda(Moneda moneda) {
        comprador.getBilletera().add(moneda);
     }
 
+    /**
+     * actualiza la billetera ordenando las monedas y recreando los botones que corresponden.
+     */
     public void acBilletera() {
         panelBilletera.removeAll();
         botonesMonedas.clear();
@@ -87,6 +102,11 @@ public class PanelComprador extends JPanel {
         panelBilletera.repaint();
     }
 
+    /**
+     * este metodo crea un boton para representar visualmente una moneda clickeable.
+     * @param moneda moneda clickeable.
+     * @return retorna el boton con las caracteristicas necesarias para representar visualmente la moneda.
+     */
     private JButton crearMoneda(Moneda moneda) {
         JButton botonMoneda = new JButton();
         botonMoneda.setPreferredSize(new Dimension(80, 80));
@@ -106,17 +126,30 @@ public class PanelComprador extends JPanel {
         return botonMoneda;
     }
 
+    /**
+     * metodo para obtener el icono png de cierta moneda dependiendo de su valor
+     * @param valor valor de la monera (100,500,1000)
+     * @return retorna la ruta especifica del tipo de moneda.
+     */
     private ImageIcon getIcon(int valor) {
             String ruta = "resources/imagenes/moneda" + valor + ".png";
             return new ImageIcon(ruta);
     }
 
+    /**
+     * metodo que permite el abrir y cerrar la billetera.
+     * cambia el texto del boton dependiendo de la condicion de la billetera.
+     */
     private void toggleBilletera() {
         billeteraAbierta = !billeteraAbierta;
         panelBilletera.setVisible(billeteraAbierta);
         toggleBilletera.setText(billeteraAbierta ? "Cerrar Billetera" : "Abrir Billetera");
     }
 
+    /**
+     * metodo para obtener un arraylist con las monedas que están en la billetera
+     * @return lista de monedas en la billetera.
+     */
     public ArrayList<Moneda> getMonedasBilletera() {
         return monedasBilletera;
     }
@@ -130,12 +163,11 @@ public class PanelComprador extends JPanel {
         g.fillRect(0, 0, getWidth(), getHeight());
     }
 
+    /**
+     * remueve la moneda seleccionada en la billetera, la actualiza luego de removerla.
+     */
     public void removerMonedaSelecc(){
-        /*if(monedaSeleccionada!=null){
-            monedasBilletera.remove(monedaSeleccionada);
-            monedaSeleccionada=null;
-            acBilletera();
-        }*/
+
         if(comprador.getMonedaSeleccionada()!=null){
             comprador.getBilletera().remove(comprador.getMonedaSeleccionada());
             comprador.setMonedaSelecc(null);
