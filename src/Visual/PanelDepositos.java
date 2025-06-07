@@ -9,9 +9,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * Clase que gestiona los depositos de productos del expendedor, dependiendo del tipo de producto.
+ */
 public class PanelDepositos extends JPanel {
     ArrayList<PanelDepositosIndividuales> panelesDepositosProductos;
     PanelProductoEntregado panelProductoEntregado;
+
+    /**
+     *constructor que inicia el panel con los depositos de los productos.
+     * crea y gestiona los paneles para cada tipo de producto en el expendedor.
+     * @param exp expendedor del cual se crean los paneles para los depositos.
+     */
     public PanelDepositos(Expendedor exp){
        this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
        panelesDepositosProductos=new ArrayList<>();
@@ -36,10 +45,20 @@ public class PanelDepositos extends JPanel {
        this.add(panelProductoEntregado);
 
     }
+
+    /**
+     *obtiene un arraylist que contiene los paneles de los depositos de productos de un expendedor.
+     *
+     * @return lista de los depositos individuales.
+     */
     public ArrayList<PanelDepositosIndividuales> getPanelesDepositosProductos(){
         return panelesDepositosProductos;
     }
 
+    /**
+     *metodo para obtener el panel donde se muestra el producto entregado.
+     * @return panel de producto entregado.
+     */
     public PanelProductoEntregado getPanelProductoEntregado() {
         return panelProductoEntregado;
     }
