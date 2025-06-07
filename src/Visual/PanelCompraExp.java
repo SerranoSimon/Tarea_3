@@ -9,11 +9,21 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * clase que representa visualmente la interfaz de compra del expendedor.
+ * contiene funcionalidades como seleccionar productos, rellenar depositos y gestion de vuelto.
+ */
 public class PanelCompraExp extends JPanel  {
     private PanelBotonesSeleccion panelBotonesSeleccion;
     private PanelVuelto panelVuelto;
     private JButton rellenar;
     private PanelDepositoMonedas DepositoMonedas;
+
+    /**
+     * constructor que incia el panel de compra del expendedor.
+     * @param exp expendedor logico.
+     * @param panelComprador panel del comprador asociado al expendedor.
+     */
     public PanelCompraExp(Expendedor exp, PanelComprador panelComprador) {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         //Titulo
@@ -95,16 +105,34 @@ public class PanelCompraExp extends JPanel  {
 
     }
 
+    /**
+     * obtiene el boton de rellenar depositos.
+     * @return JButton para rellenar depositos.
+     */
     public JButton getRellenar(){
         return rellenar;
     }
+
+    /**
+     * obtiene el panel con los botones de seleccion de productos.
+     * @return botones numericos de seleccion.
+     */
     public PanelBotonesSeleccion getPanelBotonesSeleccion(){
         return panelBotonesSeleccion;
     }
+
+    /**
+     *obtiene el panel de deposito de monedas.
+     * @return monedas disponibles en el panel.
+     */
     public PanelDepositoMonedas getPanelDepositoMonedas(){
         return DepositoMonedas;
     }
 
+    /**
+     * obtiene el panel de vuelto asociado al expendedor.
+     * @return vuelto en el panel.
+     */
     public PanelVuelto getPanelVuelto() {
         return panelVuelto;
     }
