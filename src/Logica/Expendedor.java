@@ -70,7 +70,17 @@ public class Expendedor {
     public Moneda getVuelto(){
         return MonVu.get();
     }
+
+    /**
+     *metodo para obtener una moneda en especifico.
+     * @return moneda en especifico.
+     */
     public DepositoGenerico<Moneda> getMonVu(){return MonVu;}
+
+    /**
+     *metodo para obtener el deposito de monedas del expendedor, el cual contiene todas las monedas usadas en las compras realizadas.
+     * @return retorna el deposito de monedas del expendedor.
+     */
     public DepositoGenerico<Moneda> getDepositoMonedas(){ return depositoMonedas;}
 
     /**
@@ -81,7 +91,7 @@ public class Expendedor {
      * @param m Moneda con la que se comprará
      * @param seleccion Numero que representa la elección del producto
      * @return El producto deseado
-     * @throws NoHayProductoException Si no queda del producto o hubo una elección invalida
+     * @throws NoHayProductoException Si no queda del producto.
      * @throws PagoIncorrectoException Si se pagó con una moneda nula
      * @throws PagoInsuficienteException Si la moneda es de un valor menor al precio del producto
      */
@@ -131,9 +141,19 @@ public class Expendedor {
 
 
     }
+
+    /**
+     * metodo para obtener el producto que se entrega luego de realizar una compra.
+     * @return producto comprado.
+     */
     public Producto getProductoEntregado(){
         return productoEntregado;}
     int k=0; //para no repetir los numeros de serie
+
+    /**
+     * metodo para rellenar los depositos de productos dependiendo de cual este vacio.
+     * @param p producto a rellenar.
+     */
     public void rellenarDeposito(Productos p){
 
         switch (p){
