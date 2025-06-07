@@ -7,12 +7,18 @@ import java.awt.event.MouseEvent;
 
 import Logica.*;
 
-
+/**
+ * Clase que representa visualmente la zona donde se entrega el producto en el expendedor.
+ * Permite la interacción del usuario con el producto mediante clicks.
+ */
 public class PanelProductoEntregado extends JPanel {
     private JPanel rectangulo;
     private JPanel depositoProductoEntregado;
     private Producto productoEntregado;
 
+    /**
+     * Inicia el panel del producto entregado, lo configura visualmente y establece los listeners del mouse.
+     */
     public PanelProductoEntregado() {
         this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
         this.setBackground(Color.PINK);
@@ -48,7 +54,10 @@ public class PanelProductoEntregado extends JPanel {
         });
     }
 
-
+    /**
+     * muestra visualmente el producto entregado en el area establecida luego de una compra en un expendedor.
+     * @param producto producto entregado.
+     */
     public void mostrarProducto(Producto producto) {
         this.productoEntregado=producto;
         depositoProductoEntregado.removeAll();
@@ -58,6 +67,10 @@ public class PanelProductoEntregado extends JPanel {
         depositoProductoEntregado.revalidate();
         depositoProductoEntregado.repaint();
     }
+
+    /**
+     * metodo para entregar el producto al usuario, elimina el producto visualmente al hacerle click y muestra un mensaje especifico para el producto comprado.
+     */
     public void entregarProducto(){
         depositoProductoEntregado.removeAll();
         JOptionPane.showMessageDialog(null, "Recogiste el producto: " + productoEntregado.consumir() +
