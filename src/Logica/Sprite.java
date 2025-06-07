@@ -23,6 +23,10 @@ public class Sprite extends Bebida {
     public String consumir() {
         return "Sprite";
     }
+    /**
+     *metodo para obtener el icono del producto Sprite.
+     * @return retorna el ImageIcon del producto correspondiente.
+     */
     public ImageIcon getIcon(){
         return imagen;
     }

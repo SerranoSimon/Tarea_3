@@ -22,7 +22,10 @@ public class Moneda500 extends Moneda{
     public int getValor() {
         return 500;
     }
-
+    /**
+     * permite obtener el ImageIcon de moneda500.
+     * @return ImageIcon relacionado a la moneda.
+     */
     @Override
     public ImageIcon getIcon() {
         return imagen;

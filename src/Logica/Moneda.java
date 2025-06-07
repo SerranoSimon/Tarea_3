@@ -53,6 +53,11 @@ public abstract class Moneda implements Comparable<Moneda>{
             return 0;
         }
     }
+
+    /**
+     * metodo que permite obtener el icono de cada tipo de moneda.
+     * @return retorna la imagen de la moneda especifica.
+     */
     public abstract ImageIcon getIcon();
 
 }

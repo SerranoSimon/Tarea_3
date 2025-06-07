@@ -25,6 +25,11 @@ public class Fanta extends Bebida {
         return "Fanta";
     }
 
+    /**
+     * metodo para obtener el icono (imagen) del producto fanta.
+     * @return retorna un ImageIcon relacionado al producto.
+     */
+
     @Override
     public ImageIcon getIcon() {
         return imagen;

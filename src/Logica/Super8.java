@@ -24,7 +24,10 @@ public class Super8 extends Dulce{
     public String consumir() {
         return "Super8";
     }
-
+    /**
+     *metodo para obtener el icono del producto super8.
+     * @return retorna el ImageIcon del producto correspondiente.
+     */
     @Override
     public ImageIcon getIcon() {
         return imagen;

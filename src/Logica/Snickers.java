@@ -24,6 +24,11 @@ public class Snickers extends Dulce{
     public String consumir() {
         return "Snickers";
     }
+
+    /**
+     *metodo para obtener el icono del producto Snickers.
+     * @return retorna el ImageIcon del producto correspondiente.
+     */
     @Override
     public ImageIcon getIcon(){
         return imagen;

@@ -25,6 +25,10 @@ public class Cocacola extends Bebida {
         return "Cocacola";
     }
 
+    /**
+     *metodo para obtener el icono del producto coca-cola.
+     * @return retorna el ImageIcon del producto correspondiente.
+     */
     @Override
     public ImageIcon getIcon() {
         return imagen;

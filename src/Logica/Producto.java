@@ -29,5 +29,10 @@ public abstract class Producto {
      * @return El producto consumido
      */
     public abstract String consumir();
+
+    /**
+     * metodo abstracto que permite obtener el ImageIcon de cada producto del expendedor.
+     * @return retorna el ImageIcon de cada producto especificamente.
+     */
     public abstract ImageIcon getIcon();
 }
