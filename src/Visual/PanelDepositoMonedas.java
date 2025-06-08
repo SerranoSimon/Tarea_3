@@ -21,7 +21,7 @@ public class PanelDepositoMonedas extends JPanel {
      */
     public PanelDepositoMonedas(Expendedor exp){
         this.setBackground(Color.WHITE);
-        this.setLayout(new FlowLayout());
+        this.setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
         this.depositoMonedas=exp.getDepositoMonedas();
 
     }
