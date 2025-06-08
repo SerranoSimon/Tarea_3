@@ -1,6 +1,5 @@
 package Logica;
 
-import java.util.ArrayList;
 
 /**
  * La clase Expendedor actúa como una máquina expendedora que vende bebidas y dulces,
@@ -63,13 +62,7 @@ public class Expendedor {
         };
     }
 
-    /**
-     *
-     * @return UNA moneda del depósito de vuelto
-     */
-    public Moneda getVuelto(){
-        return MonVu.get();
-    }
+
 
     /**
      *metodo para obtener una moneda en especifico.
@@ -90,7 +83,6 @@ public class Expendedor {
      *
      * @param m Moneda con la que se comprará
      * @param seleccion Numero que representa la elección del producto
-     * @return El producto deseado
      * @throws NoHayProductoException Si no queda del producto.
      * @throws PagoIncorrectoException Si se pagó con una moneda nula
      * @throws PagoInsuficienteException Si la moneda es de un valor menor al precio del producto

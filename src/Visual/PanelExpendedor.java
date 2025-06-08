@@ -87,7 +87,6 @@ public class PanelExpendedor extends JPanel implements ActionListener {
                     break;
                 case "1":
                     PanelComprador.comprador.comprarProducto(m,Productos.COCACOLA,exp);
-                    //exp.comprarProducto(m,Productos.COCACOLA);
                     panelDepositos.getPanelesDepositosProductos().get(0).actualizar();
                     panelCompraExp.getPanelDepositoMonedas().actualizar();
                     panelComprador.removerMonedaSelecc();
@@ -97,7 +96,6 @@ public class PanelExpendedor extends JPanel implements ActionListener {
                     break;
                 case "2":
                     PanelComprador.comprador.comprarProducto(m,Productos.SPRITE,exp);
-                    //exp.comprarProducto(m,Productos.SPRITE);
                     panelDepositos.getPanelesDepositosProductos().get(1).actualizar();
                     panelCompraExp.getPanelDepositoMonedas().actualizar();
                     panelComprador.removerMonedaSelecc();
@@ -106,7 +104,6 @@ public class PanelExpendedor extends JPanel implements ActionListener {
                     break;
                 case "3":
                     PanelComprador.comprador.comprarProducto(m,Productos.FANTA,exp);
-                    //exp.comprarProducto(m,Productos.FANTA);
                     panelDepositos.getPanelesDepositosProductos().get(2).actualizar();
                     panelCompraExp.getPanelDepositoMonedas().actualizar();
                     panelComprador.removerMonedaSelecc();
@@ -115,7 +112,6 @@ public class PanelExpendedor extends JPanel implements ActionListener {
                     break;
                 case "4":
                     PanelComprador.comprador.comprarProducto(m,Productos.SUPER8,exp);
-                    //exp.comprarProducto(m,Productos.SUPER8);
                     panelDepositos.getPanelesDepositosProductos().get(3).actualizar();
                     panelCompraExp.getPanelDepositoMonedas().actualizar();
                     panelComprador.removerMonedaSelecc();
@@ -125,7 +121,6 @@ public class PanelExpendedor extends JPanel implements ActionListener {
 
                 case "5":
                     PanelComprador.comprador.comprarProducto(m,Productos.SNICKERS,exp);
-                    //exp.comprarProducto(m,Productos.SNICKERS);
                     panelDepositos.getPanelesDepositosProductos().get(4).actualizar();
                     panelCompraExp.getPanelDepositoMonedas().actualizar();
                     panelComprador.removerMonedaSelecc();

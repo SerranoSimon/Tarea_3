@@ -7,7 +7,6 @@ import java.util.ArrayList;
  * el constructor realiza automáticamente la compra, el consumo del producto y calcula el vuelto.
  */
 public class Comprador {
-    private String consumido;
     private Moneda monedaSelecc;
     private ArrayList<Moneda> billetera;
 
@@ -38,9 +37,7 @@ public class Comprador {
      * metodo que muestra el producto consumido.
      * @return String del producto consumido.
      */
-    public String queConsumiste() {
-        return consumido;
-    }
+
 
     /**
      * metodo para obtener la moneda seleccionada en el comprador (moneda a usar)
